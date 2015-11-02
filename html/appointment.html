@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head lang="en"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" /> 
+    <title>预约管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="./css/appointment.css" rel="stylesheet" type="text/css" /> 
+    <link href="./css/hDate.css" rel="stylesheet" type="text/css" /> 
+</head> 
+<body>
+	<header>
+		<a class="back" href='../php/navigation.php'>
+			<img src="<?php echo $_SESSION['logo'];?>">
+		</a>
+        <div class="category">
+            <div class="item" onclick="category(0)">全部预约</div>
+            <div class="item" onclick="category(1)">代约私教</div>
+            <div class="item" onclick="category(2)">代约团课</div>
+        </div>
+	</header>
+	<?php if($_POST['category']==0){ ?>
+	<div class="titlewrap">
+		<div class="title">
+			<input class="input" onClick="calshow(this)" readonly="readonly" placeholder="选择开始日期" type="text" />
+		</div>
+		<div class="title" id='end'>
+			<input class="input" onClick="calshow(this)" readonly="readonly" placeholder="选择结束日期" type="text" />
+		</div>
+	</div>
+	<nav class="list-nav">
+		<div class="cat Fix">
+			<a href="javascript:void(0)" id="nav1" class="item">
+				全部私教
+				<i class="drop"></i>
+			</a>
+			<a href="javascript:void(0)" id="nav2" class="item">
+				全部商户
+				<i class="drop"></i>
+			</a>
+		</div>
+		<section class="selector" id="selector1">
+			<div class="menu">
+				<a class="item Fix" href="javascript:void(0)">全部私教</a>
+			</div>
+		</section>
+		<section class="selector" id="selector2">
+			<div class="menu">
+				<a class="item Fix" href="javascript:void(0)">全部商户</a>
+			</div>
+		</section>
+	</nav>
+	<ul class="header">
+		<li class="col">时间</li>
+		<li class="col">门店</li>
+		<li class="col">课程名称</li>
+		<li class="col">教练</li>
+		<li class="col">会员名称</li>
+		<li class="col">操作</li>
+	</ul>
+	<?php }?>
+	<?php if($_POST['category']==1){ ?>
+	<div class="titlewrap">
+		<div class="title2">
+			<input class="input" onClick="calshow(this)" readonly="readonly" placeholder="选择日期" type="text" />
+		</div>
+		<div class="merchant-list">
+			<ul class="list">
+				<li class="selected list-li">形健身工作室
+					<i class="location"></i>
+					<i class="ic-arrow"></i>
+				</li>
+				<li class="list-li z-selected"><span>形健身工作室</span>
+					<i class="ic-tick"></i>
+				</li>
+				<li class="list-li"><span>形健身工作室2</span>
+					<i class="ic-tick"></i>
+				</li>
+				<li class="list-li"><span>形健身工作室3</span>
+					<i class="ic-tick"></i>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="sijiao-list">
+		<ul class="sjlist">
+			<li class="sjlist-li">
+				<div class="imgwrap">
+					<img src="./image/login/logo.png">
+					<i class="u-tick"></i>
+				</div>
+				<p class="sjname">私教1</p>
+			</li>
+			<li class="sjlist-li">
+				<div class="imgwrap">
+					<img src="./image/login/logo.png">
+					<i class="u-tick"></i>
+				</div>
+				<p class="sjname">私教2</p>
+			</li>
+			<li class="sjlist-li">
+				<div class="imgwrap">
+					<img src="./image/login/logo.png">
+					<i class="u-tick"></i>
+				</div>
+				<p class="sjname">私教3</p>
+			</li>
+		</ul>
+	</div>
+	<div class="class-list">
+		<div class="class-title">
+			<h3>请选择课程：</h3>
+		</div>
+		<ul class="classlist">
+			<li class="classlist-li">
+				<div class="lessonInfo f-cf">
+					<div class="lessonImg">
+						<img src="./image/login/logo.png">
+					</div>
+					<div class="infowrap">
+						<p class="lessonName">测试课程1</p>
+						<p class="lessonTime">时长：50min</p>
+					</div>
+					<a class="u-btn" href＝"javascript:void(0)">选择</a>
+				</div>
+			</li>
+			<li class="classlist-li">
+				<div class="lessonInfo f-cf">
+					<div class="lessonImg">
+						<img src="./image/login/logo.png">
+					</div>
+					<div class="infowrap">
+						<p class="lessonName">测试课程2</p>
+						<p class="lessonTime">时长：20min</p>
+					</div>
+					<a class="u-btn" href＝"javascript:void(0)">选择</a>
+				</div>
+			</li>
+			<li class="classlist-li">
+				<div class="lessonInfo f-cf">
+					<div class="lessonImg">
+						<img src="./image/login/logo.png">
+					</div>
+					<div class="infowrap">
+						<p class="lessonName">测试课程3</p>
+						<p class="lessonTime">时长：30min</p>
+					</div>
+					<a class="u-btn" href＝"javascript:void(0)">选择</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="btns">确定预约</div>	
+	<?php }?>
+	<?php if($_POST['category']==2){ ?>
+	<div class="titlewrap">
+		<div class="title2">
+			<input class="input" onClick="calshow(this)" readonly="readonly" placeholder="选择日期" type="text" />
+		</div>
+		<div class="merchant-list">
+			<ul class="list">
+				<li class="selected list-li">形健身工作室
+					<i class="location"></i>
+					<i class="ic-arrow"></i>
+				</li>
+				<li class="list-li z-selected"><span>形健身工作室</span>
+					<i class="ic-tick"></i>
+				</li>
+				<li class="list-li"><span>形健身工作室2</span>
+					<i class="ic-tick"></i>
+				</li>
+				<li class="list-li"><span>形健身工作室3</span>
+					<i class="ic-tick"></i>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="tklist">
+		<li class="tklist-li f-cf">
+			<div class="timewrap">08:00</div>
+			<div class="tkinfo">
+				<h4>团课1</h4>
+				<p class="item">地点：团课室</p>
+				<p class="item">教练：教练1</p>
+			</div>
+			<div class="tkimg">
+				<img src="./image/login/logo.png">
+			</div>
+		</li>
+		<li class="tklist-li f-cf">
+			<div class="timewrap">12:00</div>
+			<div class="tkinfo">
+				<h4>团课2</h4>
+				<p class="item">地点：团课室</p>
+				<p class="item">教练：教练2</p>
+			</div>
+			<div class="tkimg">
+				<img src="./image/login/logo.png">
+			</div>
+		</li>
+		<li class="tklist-li f-cf">
+			<div class="timewrap">18:00</div>
+			<div class="tkinfo">
+				<h4>团课3</h4>
+				<p class="item">地点：团课室</p>
+				<p class="item">教练：教练3</p>
+			</div>
+			<div class="tkimg">
+				<img src="./image/login/logo.png">
+			</div>
+		</li>
+	</ul>
+	<?php }?>
+	<div class="layer"></div>
+	<form method="post" action="" name="form0">
+        <input type="hidden" name="category" id="cateid">
+    </form>
+	<script type="text/javascript">
+	$(".category .item").eq(<?php echo $_POST['category'];?>).css("background-color","#faf100");
+	$(".category .item").eq(<?php echo $_POST['category'];?>).css("color","#000");
+	$("#end").css("left","15%");
+	$(".tkimg").css("height",$(".tkimg").css("width"));
+	function category (i) {
+		$("#cateid").val(i);
+		form0.submit();
+	}
+	function calshow (i){
+		$(".layer").show();
+		$(".layer").css("z-index","250");
+		calendar.show({ id: i });
+	}
+	$("#nav1").click(function(){
+		if ($("#selector1").css("display")=="block") {
+			$("#selector1").hide();
+			$("#nav1").removeClass("on");
+			$(".layer").hide();
+		}else{
+			$("#selector2").hide();
+			$("#nav2").removeClass("on");
+			$("#nav1").addClass("on");
+			$("#selector1").show();
+			$(".layer").show();
+		};
+	});
+	$("#nav2").click(function(){
+		if ($("#selector2").css("display")=="block") {
+			$("#selector2").hide();
+			$(".layer").hide();
+			$("#nav2").removeClass("on");
+		}else{
+			$("#selector1").hide();
+			$("#selector2").show();
+			$("#nav1").removeClass("on");
+			$("#nav2").addClass("on");
+			$(".layer").show();
+		};
+	});
+	$(".list").click(function(){
+		if ($(this).hasClass("down")) {
+			$(this).removeClass("down");
+			$(".layer").hide();
+		}else{
+			$(this).addClass("down");
+			$(".layer").show();
+		};
+	});
+	$(".ic-tick").eq(0).show();
+	$(".u-tick").eq(0).show();
+	$(".sjlist-li").eq(0).find(".imgwrap").css("border-color","#00bfbf");
+	$("li").click(function(){
+		if ($(".list-li").index(this)>0) {
+			$(".list-li").removeClass("z-selected");
+			$(".list-li").eq(0).html($(".list-li").eq($(".list-li").index(this)).find("span").html()+"<i class='location'></i><i class='ic-arrow'></i>");
+			$(".ic-tick").hide();
+			$(".ic-tick").eq($(".list-li").index(this)-1).show();
+			$(".list-li").eq($(".list-li").index(this)).addClass("z-selected");
+		};
+		if ($(".sjlist-li").index(this)>=0) {
+			$(".u-tick").hide();
+			$(".sjlist-li .imgwrap").css("border-color","#e8e8e8")
+			$(".sjlist-li").eq($(".sjlist-li").index(this)).find(".imgwrap").css("border-color","#00bfbf");
+			$(".u-tick").eq($(".sjlist-li").index(this)).show();
+		};
+	});
+	</script>
+	<script type="text/javascript" src="./js/hDate.js"></script>
+</body>
+</html>

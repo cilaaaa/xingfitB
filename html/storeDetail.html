@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head lang="en"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" /> 
+    <title>门店信息</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="./css/storeDetail.css" rel="stylesheet" type="text/css" /> 
+</head> 
+<body>
+	<header>
+		<div class="layout_header">
+			<a href="../php/system.php" class="back">返回</a>
+		</div>
+	</header>
+	<form  method="post" enctype ="multipart/form-data" action="" name="form0">
+		<div class="main_title">
+			<p class="title">门店信息</p>
+			<div id="store" class="change_info">修改门店信息</div>
+			<div id="storecontrols" class="controls">
+	            <div id="storeqx" class="qx">取消</div>
+	            <div id="storeqr" class="qr">确认</div>
+	        </div>
+		</div>
+		<div class="store_info">
+			<div class="left">
+				<ul class="store">
+					<li>
+						<label>门店名称:</label>
+						<span class="info_xg">
+							<input type="text" name="store_xg_name" value="<?php echo $store['store_name'];?>">
+						</span>
+						<span class="nxg"><?php echo $store['store_name'];?></span>
+					</li>
+					<li>
+						<label>地址:</label>
+						<span class="info_xg">
+							<input type="text" name="store_xg_location" value="<?php echo $store['store_location'];?>">
+						</span>
+						<span class="nxg"><?php echo $store['store_location'];?></span>
+					</li>
+					<li>
+						<label>电话:</label>
+						<span class="info_xg">
+							<input type="text" name="store_xg_phone" value="<?php echo $store['store_phone'];?>">
+						</span>
+						<span class="nxg"><?php echo $store['store_phone'];?></span>
+					</li>
+					<li>
+						<label>邮箱:</label>
+						<span class="info_xg">
+							<input type="text" name="store_xg_mail" value="<?php echo $store['store_mail'];?>">
+						</span>
+						<span class="nxg"><?php echo $store['store_mail'];?></span>
+					</li>
+					<li>
+						<label>微信:</label>
+						<span class="info_xg">
+							<input type="text" name="store_xg_wechat" value="<?php echo $store['store_wechat'];?>">
+						</span>
+						<span class="nxg"><?php echo $store['wechat'];?></span>
+					</li>
+				</ul>		
+			</div>
+			<div class="right">
+				<img class="img" src="<?php echo $store['store_logo'];?>">
+				<p class="txt nxg"><?php echo $store['store_name'];?></p>
+				<div class="info_xg upload">上传Logo
+					<input id="img" type="file" onchange="panduan(this)" name="store_xg_logo">
+				</div>
+			</div>
+		</div>
+		<div class="main_title">
+			<p class="title">营业时间</p>
+		</div>
+		<ul class="time">
+			<li>
+				<label>星期一</label>
+				<span class="info_xg">
+					<input type="hidden" name="mon_xg_sh" id="mon_xg_sh">
+					<select id="monsh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="mon_xg_sm" id="mon_xg_sm">
+					<select id="monsm" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="mon_xg_eh" id="mon_xg_eh">
+					<select id="moneh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="mon_xg_em" id="mon_xg_em">
+					<select id="monem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['monday_start_hour'];?>:<?php echo $times['monday_start_min'];?>至<?php echo $times['monday_end_hour'];?>:<?php echo $times['monday_end_min'];?></span>
+			</li>
+			<li>
+				<label>星期二</label>
+				<span class="info_xg">
+					<input type="hidden" name="tue_xg_sh" id="tue_xg_sh">
+					<select id="tuesh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="tue_xg_sm" id="tue_xg_sm">
+					<select id="tuesm" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="tue_xg_eh" id="tue_xg_eh">
+					<select id="tueeh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="tue_xg_em" id="tue_xg_em">
+					<select id="tueem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['tuesday_start_hour'];?>:<?php echo $times['tuesday_start_min'];?>至<?php echo $times['tuesday_end_hour'];?>:<?php echo $times['tuesday_end_min'];?></span>
+			</li>
+			<li>
+				<label>星期三</label>
+				<span class="info_xg">
+					<input type="hidden" name="wed_xg_sh" id="wed_xg_sh">
+					<select id="wedsh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="wed_xg_sm" id="wed_xg_sm">
+					<select id="wedsm" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="wed_xg_eh" id="wed_xg_eh">
+					<select id="wedeh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="wed_xg_em" id="wed_xg_em">
+					<select id="wedem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['wednesday_start_hour'];?>:<?php echo $times['wednesday_start_min'];?>至<?php echo $times['wednesday_end_hour'];?>:<?php echo $times['wednesday_end_min'];?></span>
+			</li>
+			<li>
+				<label>星期四</label>
+				<span class="info_xg">
+					<input type="hidden" name="tur_xg_sh" id="tur_xg_sh">
+					<select id="tursh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="tur_xg_sm" id="tur_xg_sm">
+					<select id="tursm" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="tur_xg_eh" id="tur_xg_eh">
+					<select id="tureh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="tur_xg_em" id="tur_xg_em">
+					<select id="turem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['thursday_start_hour'];?>:<?php echo $times['thursday_start_min'];?>至<?php echo $times['thursday_end_hour'];?>:<?php echo $times['thursday_end_min'];?></span>
+			</li>
+			<li>
+				<label>星期五</label>
+				<span class="info_xg">
+					<input type="hidden" name="fri_xg_sh" id="fri_xg_sh">
+					<select id="frish" class="select hour"></select>
+					 时 
+					<input type="hidden" name="fri_xg_sm" id="fri_xg_sm">
+					<select id="frism" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="fri_xg_eh" id="fri_xg_eh">
+					<select id="frieh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="fri_xg_em" id="fri_xg_em">
+					<select id="friem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['friday_start_hour'];?>:<?php echo $times['friday_start_min'];?>至<?php echo $times['friday_end_hour'];?>:<?php echo $times['friday_end_min'];?></span>
+			</li>
+			<li>
+				<label>星期六</label>
+				<span class="info_xg">
+					<input type="hidden" name="sat_xg_sh" id="sat_xg_sh">
+					<select id="satsh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="sat_xg_sm" id="sat_xg_sm">
+					<select id="satsm" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="sat_xg_eh" id="sat_xg_eh">
+					<select id="sateh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="sat_xg_em" id="sat_xg_em">
+					<select id="satem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['saturday_start_hour'];?>:<?php echo $times['saturday_start_min'];?>至<?php echo $times['saturday_end_hour'];?>:<?php echo $times['saturday_end_min'];?></span>
+			</li>
+			<li>
+				<label>星期日</label>
+				<span class="info_xg">
+					<input type="hidden" name="sun_xg_sh" id="sun_xg_sh">
+					<select id="sunsh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="sun_xg_sm" id="sun_xg_sm">
+					<select id="sunsm" class="select min"></select>
+					 分   至   
+					<input type="hidden" name="sun_xg_eh" id="sun_xg_eh">
+					<select id="suneh" class="select hour"></select>
+					 时 
+					<input type="hidden" name="sun_xg_em" id="sun_xg_em">
+					<select id="sunem" class="select min"></select>
+					 分  
+				</span>
+				<span class="nxg"><?php echo $times['sunday_start_hour'];?>:<?php echo $times['sunday_start_min'];?>至<?php echo $times['sunday_end_hour'];?>:<?php echo $times['sunday_end_min'];?></span>
+			</li>
+		</ul>
+	</form>
+	<div class="main_title">
+		<p class="title">场地管理</p>
+		<div id="place" class="change_info">添加场地</div>
+		<div id="placecontrols" class="controls">
+            <div id="placeqx" class="qx">取消</div>
+            <div id="placeqr" class="qr">确认</div>
+        </div>
+	</div>
+	<div class="addplace">
+        <form method="post" action="" name="form1">
+            <ul>
+                <li>
+                    <label class="lab">场地名称:</label>
+                    <input class="textinput" type="text" name="place_name" id="name">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label class="lab">容纳人数:</label>
+                    <input class="textinput" type="tel" name="place_limit" id="limit">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label class="lab">场地用途:</label>
+                    <label class="sublab">
+                    	<input class="checkinput" type="checkbox" name="forsj" id="forsj">上私教课
+                    </label>
+                    <label class="sublab">
+                    	<input class="checkinput" type="checkbox" name="fortk" id="fortk">上团课
+                    </label>
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+            </ul>
+        </form>
+    </div>
+    
+		<ul class="place">
+			<li class="place_lab">
+				<div class="item">场地名称</div>
+				<div class="item">可容纳人数</div>
+				<div class="item2">场地可用于</div>
+				<div class="item">操作</div>
+			</li>
+			<?php foreach($places as $key=>$val){ ?>
+			<li class="place_info">
+				<form  method="post" action="" name="info<?php echo $key;?>" id="info<?php echo $key;?>">
+				<div class="placexg">
+					<div class="item">
+						<input type="text" id="place_xg_name<?php echo $key;?>" name="place_xg_name" value="<?php echo $val['place_name'];?>">
+					</div>
+					<div class="item">
+						<input type="tel" id="place_xg_limit<?php echo $key;?>" name="place_xg_limit" value="<?php echo $val['place_limit'];?>">
+					</div>
+					<div class="item2">
+						<label class="xglab">
+			                <input class="checkinput" id="place_xg_sj<?php echo $key;?>" type="checkbox" name="xgsj">上私教课
+			            </label>
+			            <label class="xglab">
+			              	<input class="checkinput" id="place_xg_tk<?php echo $key;?>" type="checkbox" name="xgtk">
+			              	上团课
+			            </label>
+		        	</div>
+			        <div class="action">
+		            		<div class="place_xg_qx">取消</div>
+		            		<div class="place_xg_qr">确认</div>
+					</div>
+				</div>
+				<div class="nplacexg">
+					<div class="item"><?php echo $val['place_name'];?></div>
+					<div class="item"><?php echo $val['place_limit'];?>人</div>
+					<div class="item2">
+						<?php if($val['place_for_sijiao']==1){?>
+						    <?php if($val['place_for_tuanke']==1){?>
+						    上私教课&nbsp上团课
+						    <?php }?>
+						    <?php if($val['place_for_tuanke']!=1){?>
+						    上私教课
+						    <?php }?>
+						<?php }?>
+						<?php if($val['place_for_tuanke']==1 && $val['place_for_sijiao']!=1){?>
+						上团课
+						<?php }?>
+					</div>
+					
+					<div class="action">
+						<div class="item3 xg" onclick="place_change(<?php echo $val['place_id'];?>,this)">修改</div>
+						<span>|</span>
+						<div class="item3 sc" onclick="place_del(<?php echo $val['place_id'];?>,this)">删除</div>
+					</div>
+				</div>	
+			</li>
+			<input type="hidden" name="place_sc" id="place_sc<?php echo $key;?>">
+			<input type="hidden" name="place_id" id="place_id<?php echo $key;?>">
+			<input type="hidden" name="place_xg" id="place_xg<?php echo $key;?>">
+			</form>
+			<?php }?>
+		</ul>
+		<div id="fujian" class="layer">
+	        <ul class="messagehit">
+	            <li class="content">
+	                附件不能大于1M
+	            </li>
+	            <li class="button">
+	                ok
+	            </li>
+	        </ul>
+    	</div>
+    	<div id="geshi" class="layer">
+	        <ul class="messagehit">
+	            <li class="content">
+	                请选择jpg或者png格式文件上传！
+	            </li>
+	            <li class="button">
+	                ok
+	            </li>
+	        </ul>
+    	</div>
+	<script type="text/javascript">
+	$("#place").click(function () {
+		$("#placecontrols").toggle();
+		$("#place").toggle();
+		$(".addplace").toggle();
+	});
+	$("#placeqx").click(function () {
+		$("#placecontrols").toggle();
+		$("#place").toggle();
+		$(".addplace").toggle();
+	});
+	$("#store").click(function(){
+		$(".nxg").toggle();
+		$("#storecontrols").toggle();
+		$(".info_xg").toggle();
+		$(".left ul li span.info_xg").css("display","table-cell");
+		$(".time li span").css("left","60px");
+		$("#store").toggle();
+	});
+	$("#storeqx").click(function () {
+		$("#storecontrols").toggle();
+		$("#store").toggle();
+		$(".nxg").toggle();
+		$("#img").val("");
+		$(".img").attr("src","<?php echo $store['store_logo'];?>");
+		$(".time li span").css("left","130px");
+		$(".info_xg").toggle();
+	});
+	$("#placeqr").click(function(){
+		if ($("#name").val()=="") {
+			alert("场地名称不能为空");
+        	return;
+		}else if ($("#limit").val()<=0||$("#limit").val()=="") {
+			alert("容纳人数不能小于1");
+        	return;
+		}else if (!$("#forsj").is(':checked')&&!$("#fortk").is(':checked')) {
+			alert("至少选择一个场馆用途");
+        	return;
+		};
+		form1.submit();
+	});
+	$("#storeqr").click(function(){
+		$("#mon_xg_sh").val($("#monsh").val());
+		$("#mon_xg_sm").val($("#monsm").val());
+		$("#mon_xg_eh").val($("#moneh").val());
+		$("#mon_xg_em").val($("#monem").val());
+		$("#tue_xg_sh").val($("#tuesh").val());
+		$("#tue_xg_sm").val($("#tuesm").val());
+		$("#tue_xg_eh").val($("#tueeh").val());
+		$("#tue_xg_em").val($("#tueem").val());
+		$("#wed_xg_sh").val($("#wedsh").val());
+		$("#wed_xg_sm").val($("#wedsm").val());
+		$("#wed_xg_eh").val($("#wedeh").val());
+		$("#wed_xg_em").val($("#wedem").val());
+		$("#tur_xg_sh").val($("#tursh").val());
+		$("#tur_xg_sm").val($("#tursm").val());
+		$("#tur_xg_eh").val($("#tureh").val());
+		$("#tur_xg_em").val($("#turem").val());
+		$("#fri_xg_sh").val($("#frish").val());
+		$("#fri_xg_sm").val($("#frism").val());
+		$("#fri_xg_eh").val($("#frieh").val());
+		$("#fri_xg_em").val($("#friem").val());
+		$("#sat_xg_sh").val($("#satsh").val());
+		$("#sat_xg_sm").val($("#satsm").val());
+		$("#sat_xg_eh").val($("#sateh").val());
+		$("#sat_xg_em").val($("#satem").val());
+		$("#sun_xg_sh").val($("#sunsh").val());
+		$("#sun_xg_sm").val($("#sunsm").val());
+		$("#sun_xg_eh").val($("#suneh").val());
+		$("#sun_xg_em").val($("#sunem").val());
+		form0.submit();
+	});
+	for(i=0;i<=23;i++){
+		if (i<10) {
+			if (parseInt(<?php echo $times['monday_start_hour'];?>)==i) {
+				$("#monsh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#monsh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['monday_end_hour'];?>)==i) {
+				$("#moneh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#moneh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_start_hour'];?>)==i) {
+				$("#tuesh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tuesh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_end_hour'];?>)==i) {
+				$("#tueeh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tueeh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_start_hour'];?>)==i) {
+				$("#wedsh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#wedsh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_end_hour'];?>)==i) {
+				$("#wedeh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#wedeh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_start_hour'];?>)==i) {
+				$("#tursh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tursh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_end_hour'];?>)==i) {
+				$("#tureh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tureh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_start_hour'];?>)==i) {
+				$("#frish").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#frish").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_end_hour'];?>)==i) {
+				$("#frieh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#frieh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_start_hour'];?>)==i) {
+				$("#satsh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#satsh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_end_hour'];?>)==i) {
+				$("#sateh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#sateh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_start_hour'];?>)==i) {
+				$("#sunsh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#sunsh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_end_hour'];?>)==i) {
+				$("#suneh").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#suneh").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+		}else{
+			if (parseInt(<?php echo $times['monday_start_hour'];?>)==i) {
+				$("#monsh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#monsh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['monday_end_hour'];?>)==i) {
+				$("#moneh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#moneh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_start_hour'];?>)==i) {
+				$("#tuesh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tuesh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_end_hour'];?>)==i) {
+				$("#tueeh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tueeh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_start_hour'];?>)==i) {
+				$("#wedsh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#wedsh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_end_hour'];?>)==i) {
+				$("#wedeh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#wedeh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_start_hour'];?>)==i) {
+				$("#tursh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tursh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_end_hour'];?>)==i) {
+				$("#tureh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tureh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_start_hour'];?>)==i) {
+				$("#frish").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#frish").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_end_hour'];?>)==i) {
+				$("#frieh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#frieh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_start_hour'];?>)==i) {
+				$("#satsh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#satsh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_end_hour'];?>)==i) {
+				$("#sateh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#sateh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_start_hour'];?>)==i) {
+				$("#sunsh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#sunsh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_end_hour'];?>)==i) {
+				$("#suneh").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#suneh").append("<option value='"+i+"'>"+i+"</option>");
+			};
+		}
+	}
+	for(i=0;i<=59;i++){
+		if (i<10) {
+			if (parseInt(<?php echo $times['monday_start_min'];?>)==i) {
+				$("#monsm").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#monsm").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['monday_end_min'];?>)==i) {
+				$("#monem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#monem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_start_min'];?>)==i) {
+				$("#tuesm").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tuesm").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_end_min'];?>)==i) {
+				$("#tueem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tueem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_start_min'];?>)==i) {
+				$("#wedsm").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#wedsm").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_end_min'];?>)==i) {
+				$("#wedem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#wedem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_start_min'];?>)==i) {
+				$("#tursm").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#tursm").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_end_min'];?>)==i) {
+				$("#turem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#turem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_start_min'];?>)==i) {
+				$("#frism").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#frism").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_end_min'];?>)==i) {
+				$("#friem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#friem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_start_min'];?>)==i) {
+				$("#satsm").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#satsm").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_end_min'];?>)==i) {
+				$("#satem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#satem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_start_min'];?>)==i) {
+				$("#sunsm").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#sunsm").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_end_min'];?>)==i) {
+				$("#sunem").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+			}else{
+				$("#sunem").append("<option value='0"+i+"'>0"+i+"</option>");
+			};
+		}else{
+			if (parseInt(<?php echo $times['monday_start_min'];?>)==i) {
+				$("#monsm").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#monsm").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['monday_end_min'];?>)==i) {
+				$("#monem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#monem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_start_min'];?>)==i) {
+				$("#tuesm").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tuesm").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['tuesday_end_min'];?>)==i) {
+				$("#tueem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tueem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_start_min'];?>)==i) {
+				$("#wedsm").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#wedsm").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['wednesday_end_min'];?>)==i) {
+				$("#wedem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#wedem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_start_min'];?>)==i) {
+				$("#tursm").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#tursm").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['thursday_end_min'];?>)==i) {
+				$("#turem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#turem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_start_min'];?>)==i) {
+				$("#frism").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#frism").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['friday_end_min'];?>)==i) {
+				$("#friem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#friem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_start_min'];?>)==i) {
+				$("#satsm").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#satsm").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['saturday_end_min'];?>)==i) {
+				$("#satem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#satem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_start_min'];?>)==i) {
+				$("#sunsm").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#sunsm").append("<option value='"+i+"'>"+i+"</option>");
+			};
+			if (parseInt(<?php echo $times['sunday_end_min'];?>)==i) {
+				$("#sunem").append("<option selected='selected' value='"+i+"'>"+i+"</option>");
+			}else{
+				$("#sunem").append("<option value='"+i+"'>"+i+"</option>");
+			};
+		}
+	}
+	function place_change(i,obj){
+		$(".nplacexg").eq($(".xg").index(obj)).toggle();
+		$(".placexg").eq($(".xg").index(obj)).toggle();
+		$("#place_id"+$(".xg").index(obj)).val(i);
+	};
+	$(".place_xg_qx").click(function(){
+		$(".nplacexg").eq($(".place_xg_qx").index(this)).toggle();
+		$(".placexg").eq($(".place_xg_qx").index(this)).toggle();
+	});
+	$(".place_xg_qr").click(function() {
+		if ($("#place_xg_name"+$(".place_xg_qr").index(this)).val()=="") {
+			alert("场地名称不能为空");
+        	return;
+		}else if ($("#place_xg_limit"+$(".place_xg_qr").index(this)).val()<=0||$("#place_xg_limit"+$(".place_xg_qr").index(this)).val()=="") {
+			alert("容纳人数不能小于1");
+        	return;
+		}else if (!$("#place_xg_sj"+$(".place_xg_qr").index(this)).is(':checked')&&!$("#place_xg_tk"+$(".place_xg_qr").index(this)).is(':checked')) {
+			alert("至少选择一个场馆用途");
+        	return;
+		};
+		$("#place_xg"+$(".place_xg_qr").index(this)).val(1);
+		$("#info"+$(".place_xg_qr").index(this)).submit();
+	});
+	function place_del(i,obj){
+		var a = window.confirm("确定要删除该场地吗");
+		if (a==true) {
+			$("#place_sc"+$(".sc").index(obj)).val(1);
+			$("#place_id"+$(".sc").index(obj)).val(i);
+			$("#info"+$(".sc").index(obj)).submit();
+		};
+	};
+	function panduan(target) {
+	    var fileSize = 0;
+	    fileSize = target.files[0].size;
+	    var size = fileSize / 1024;
+	    if(size>2000){
+	       $("#fujian").toggle();
+	       target.value="";
+	       return
+	    }
+	    var name=target.value;
+	    var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+	    if(fileName !="jpg" && fileName !="png"){
+	       $("#geshi").toggle();
+	       target.value="";
+	       return
+	    }
+        $(".img").attr('src',window.URL.createObjectURL(target.files[0]));
+	}
+	$("#fujian ul li.button").click(function(){
+		$("#fujian").toggle();
+	});
+	$("#geshi ul li.button").click(function(){
+		$("#geshi").toggle();
+	});
+	</script>
+</body>
+</html>

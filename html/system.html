@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head lang="en"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" /> 
+    <title>系统管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="./css/system.css" rel="stylesheet" type="text/css" /> 
+</head> 
+<body>
+	<header>
+		<a class="back" href='../php/navigation.php'>
+			<img src="<?php echo $_SESSION['logo'];?>">
+		</a>
+        <div class="category">
+            <div class="item" onclick="category(0)">门店</div>
+            <!-- <div class="item" onclick="category(1)">权限</div> -->
+            <div class="item" onclick="category(1)">短信</div>
+        </div>
+	</header>
+    <?php if($_POST['category']==0){ ?>
+    <ul>
+        <li class="li_title">
+            <div class="title_name">门店名称</div>
+            <div class="title_phone">电话</div>
+            <div class="title_location">地址</div>
+            <div class="title_action">操作</div>
+        </li>
+        <?php foreach ($stores as $val) {?>
+        <li class="store">
+            <div class="store_name"><p><?php echo $val['store_name'];?></p></div>
+            <div class="store_phone"><p><?php echo $val['store_phone'];?></p></div>
+            <div class="store_location"><p><?php echo $val['store_location'];?></p></div>
+            <a href='../php/storeDetail.php?storeId=<?php echo $val['store_id'];?>' class="action">详情</a>
+        </li>
+        <?php } ?>
+    </ul>
+    <button class="add">添加门店</button>
+    <div class="addstore">
+        <form method="post" enctype ="multipart/form-data" action="" name="form1">
+            <ul>
+                <li>
+                    <label>门店名称:</label>
+                    <input type="text" name="store_name" id="name">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label>电话:</label>
+                    <input type="text" name="store_phone" id="phone">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label>地址:</label>
+                    <input type="text" name="store_location" id="location">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label>邮箱:</label>
+                    <input type="text" name="store_mail" id="mail">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+            </ul>
+            <div class="logo">
+                <img class="yulan" src="<?php echo $res['merchantLogo'];?>">
+                <div class="choose">选择工作室logo</div>
+                <div class="logo_hit">支持jpg,png格式</br>大小不能超过1M</div>
+                <input name="store_logo" type="file" onchange="panduan(this)" class="upload">
+            </div>
+            <div class="controls">
+                <div id="store_qx" class="qx">取消</div>
+                <div id="store_qr" class="qr">确认</div>
+            </div>
+        </form>
+    </div>
+    <div id="fujian" class="layer">
+        <ul class="messagehit">
+            <li class="content">
+                附件不能大于1M
+            </li>
+            <li class="button">
+                ok
+            </li>
+        </ul>
+    </div>
+    <div id="geshi" class="layer">
+        <ul class="messagehit">
+            <li class="content">
+                请选择jpg或者png格式文件上传！
+            </li>
+            <li class="button">
+                ok
+            </li>
+        </ul>
+    </div>
+    <?php }else if($_POST['category']==2){ ?>
+    <!-- <ul class="people">
+        <li class="peopleCate">
+            <div class="item">工作人员（人）</div>
+        </li>
+        <li class="peopleCate">
+            <div class="item">教练（人）</div>
+        </li>
+        <li class="peopleCate">
+            <div class="item">会员（人）</div>
+        </li>
+    </ul>
+    <ul class="job">
+        <li class="item">
+            <div class="jobdetail"></div>
+        </li>
+    </ul> -->
+    暂未开放,等待更新
+    <?php }else if($_POST['category']==1){ ?>
+    <form  method="post" action="" name="duanxin0">
+        <input type="hidden" name="sms_sz" value="1">
+        <input type="hidden" name="category" value="2">
+        <div class="main_title">
+            <div class="title">自动提醒设置</div>
+            <div id="sms" class="change_info nxg">修改自动提醒设置</div>
+            <div class="controls xg">
+                <div id="sms_qx" class="qx">取消</div>
+                <div id="sms_qr" class="qr">确认</div>
+            </div>
+        </div>
+        <ul class="smsul">
+            <?php foreach ($sms as $key=> $val) {?>
+                <li class="smsli">
+                    <div class="smslab">
+                        <p><?php echo $val['smsName'];?></p>
+                    </div>
+                    <?php if ($smsinfo[$key+1] == -1) {?>
+                    <span class="green nxg">已开通</span>
+                    <?php }else{?>
+                    <?php if ($smsinfo[$key+1] == 0) {?>
+                    <span class="red nxg">已关闭</span>
+                    <?php }else{?>
+                    <span class="green nxg"><?php echo $smsinfo[$key+1];?>分钟</span>
+                    <?php }?>
+                    <?php }?> 
+                    <?php if ($key == 0||$key == 2||$key == 11||$key == 12) {?>
+                    <input type="tel" class="textinput xg" name="status<?php echo $key;?>" value='<?php echo $smsinfo[$key+1];?>'>
+                    <?php }else{?>
+                    <?php if ($smsinfo[$key+1]==-1) {?>
+                        <input type="checkbox" class="checkinput xg" checked name="status<?php echo $key;?>" value='<?php echo $smsinfo[$key+1];?>'>
+                    <?php }else{?>
+                    <input type="checkbox" class="checkinput xg" name="status<?php echo $key;?>" value='-1'>
+                    <?php }?>
+                    <?php }?>
+                </li>
+            <?php }?>   
+        </ul>
+    </form>
+    <?php } ?>
+    <form method="post" action="" name="form0">
+        <input type="hidden" name="category" id="cateid">
+    </form>
+<script type="text/javascript">
+$(".category .item").eq(<?php echo $_POST['category'];?>).css("background-color","#faf100");
+$(".category .item").eq(<?php echo $_POST['category'];?>).css("color","#000");
+function category (i) {
+    $("#cateid").val(i);
+    form0.submit();
+}
+$("#fujian ul li.button").click(function(){
+    $("#fujian").toggle();
+});
+$("#geshi ul li.button").click(function(){
+    $("#geshi").toggle();
+});
+function panduan (target) {
+    var fileSize = 0;
+    fileSize = target.files[0].size;
+    var size = fileSize / 1024;
+    if(size>1000){
+       $("#fujian").toggle();
+       target.value="";
+       return
+    }
+    var name=target.value;
+    var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+    if(fileName !="jpg" && fileName !="png"){
+       $("#geshi").toggle();
+       target.value="";
+       return
+    }
+    $(".yulan").attr('src',window.URL.createObjectURL(target.files[0]));
+}
+$(".add").click(function(){
+    $(".add").toggle();
+    $(".addstore").toggle();
+});
+var phonereg = /^(1[0-9]{10})$/;
+var mailreg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+$("#store_qr").click(function(){
+    if ($("#name").val()=="") {
+        alert("门店名称不能为空");
+        return;
+    }else if ($("#phone").val()=="") {
+        alert("门店电话不能为空");
+        return;
+    }else if ($("#location").val()==""){
+        alert("门店地址不能为空");
+        return;
+    }else if ($("#mail").val()==""){
+        alert("门店邮箱不能为空");
+        return;
+    }else if (!phonereg.test($("#phone").val())){
+        alert("请输入有效的手机号");
+        return;
+    }else if (!mailreg.test($("#mail").val())){
+        alert("请输入有效的邮箱地址");
+        return;
+    };
+    form1.submit();
+});
+
+$("#store_qx").click(function(){
+    $(".add").toggle();
+    $(".addstore").toggle();
+    $(".img").attr('src',"{$_SESSION['logo'];}");
+});
+
+$("#sms").click(function(){
+    $(".nxg").toggle();
+    $(".xg").toggle();
+});
+$("#sms_qx").click(function(){
+    $(".nxg").toggle();
+    $(".xg").toggle();
+});
+$("#sms_qr").click(function(){
+    duanxin0.submit();
+});
+</script>
+</body>
+</html>

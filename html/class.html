@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head lang="en"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" /> 
+    <title>课程管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="./css/class.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./css/fullcalendar.css">
+    <link rel="stylesheet" href="./css/fullcalendar.print.css" media='print'>
+</head> 
+<body>
+	<header>
+		<a class="back" href='../php/navigation.php'>
+			<img src="<?php echo $_SESSION['logo'];?>">
+		</a>
+        <div class="category">
+            <div class="item" onclick="category(0)">团课管理</div>
+            <div class="item" onclick="category(1)">私教管理</div>
+        </div>
+	</header>
+    <?php if($_POST['category']==0){ ?>
+    <div class="cate">
+        <div class="item">团课排期</div>
+        <div class="item">团课种类</div>
+    </div>
+    <div class="pq">
+        <div class="container">
+            <div class="content">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="box"> 
+                            <div class="box-content box-nomargin">
+                                <div class="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="zl">
+        <div class="titlewrap f-cf">
+            <div class="title">团课种类：
+                <span>4</span>
+            </div>
+            <div class="addtk">添加团课种类</div>
+            <div class="controls">
+                <div class="btn qx">取消</div>
+                <div class="btn qr">确认</div>
+            </div>
+        </div>
+        <div class="add">
+            <form method="post" enctype ="multipart/form-data" action="" name="form1">
+                <ul>
+                    <li>
+                        <label>团课名称:</label>
+                        <input type="text" name="tk_name" id="name">
+                        <div class="hit">必填<span>*</span></div>
+                    </li>
+                    <li>
+                        <label>团课时长:</label>
+                        <input type="tel" name="tk_time" id="time">
+                        <div class="hit">必填<span>*</span></div>
+                    </li>
+                    <li>
+                        <label>可预约数:</label>
+                        <input type="tel" name="tk_high_limit" id="high_limit">
+                        <div class="hit">必填<span>*</span></div>
+                    </li>
+                    <li>
+                        <label>最少人数:</label>
+                        <input type="tel" name="tk_low_limit" id="low_limit">
+                        <div class="hit">必填<span>*</span></div>
+                    </li>
+                    <li>
+                        <label>课程详情:</label>
+                        <textarea name="tk_xq" class="txt"></textarea>
+                    </li>
+                </ul>
+                <div class="logo">
+                    <img class="yulan" src="<?php echo $_SESSION['logo'];?>">
+                    <div class="choose">上传课程图片</div>
+                    <div class="logo_hit">支持jpg,png格式</br>大小不能超过1M</div>
+                    <input name="store_logo" type="file" onchange="panduan(this)" class="upload">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <?php }?>
+    <?php if($_POST['category']==1){ ?>
+    <div class="cate">
+        <div class="item">私教排期</div>
+        <div class="item">私教种类</div>
+    </div>
+    <div class="sj_sub_cate">
+        <div class="item">已审核</div>
+        <div class="item">未审核</div>
+    </div>
+    <?php }?>
+    <form method="post" action="" name="form0">
+        <input type="hidden" name="category" id="cateid">
+    </form>
+    <script type="text/javascript">
+    $(".category .item").eq(<?php echo $_POST['category'];?>).css("background-color","#faf100");
+    $(".category .item").eq(<?php echo $_POST['category'];?>).css("color","#000");
+    $(".cate .item").eq(0).css("background-color","#faf100");
+    $(".cate .item").eq(0).css("color","#000");
+    $(document).ready(function(){
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        if($('.calendar').length > 0){
+            $('.calendar').fullCalendar({
+                header: {
+                    left: 'prev,next,today',
+                    center: 'title',
+                    right: ''
+                },
+                buttonText:{
+                    today:'跳转到当天'
+                },
+                editable: true,
+                events: [
+                {
+                    title: '全天事项',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: '长距离项目',
+                    start: new Date(y, m, d-5),
+                    end: new Date(y, m, d-2)
+                },
+                {
+                    id: 999,
+                    title: '重复项目',
+                    start: new Date(y, m, d-3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: '重复项目',
+                    start: new Date(y, m, d+4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: '会议',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: '午餐',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: '生日聚会',
+                    start: new Date(y, m, d+1, 19, 0),
+                    end: new Date(y, m, d+1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: '点击跳转谷歌',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 29),
+                    url: 'http://www.google.com/'
+                }
+                ]
+            });
+        }
+    });
+    function category (i) {
+        $("#cateid").val(i);
+        form0.submit();
+    }
+    $(".cate .item").click(function(){
+        if ($(".cate .item").index(this)==0) {
+            $(".pq").show();
+            $(".zl").hide();
+        }else{
+            $(".zl").show();
+            $(".pq").hide();
+        };
+        $(this).parent().children(".item").css("background-color","#22272a");
+        $(this).parent().children(".item").css("color","#fff");
+        $(this).css("background-color","#faf100");
+        $(this).css("color","#000");
+    });
+    function panduan (target) {
+        var fileSize = 0;
+        fileSize = target.files[0].size;
+        var size = fileSize / 1024;
+        if(size>1000){
+           $("#fujian").toggle();
+           target.value="";
+           return
+        }
+        var name=target.value;
+        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+        if(fileName !="jpg" && fileName !="png"){
+           $("#geshi").toggle();
+           target.value="";
+           return
+        }
+        $(".yulan").attr('src',window.URL.createObjectURL(target.files[0]));
+    }
+    $(".qr").click(function(){
+        if ($("#name").val()=="") {
+            alert("团课名称不能为空");
+            return;
+        }else if ($("#time").val()=="") {
+            alert("团课时长不能为空");
+            return;
+        }else if ($("#tk_high_limit").val()==""){
+            alert("团课最多可预约人数不能为空");
+            return;
+        }else if ($("#tk_low_limit").val()==""){
+            alert("团课最少上课人数不能为空");
+            return;
+        }
+        form1.submit();
+    });
+    $(".addtk").click(function(){
+        $(".addtk").toggle();
+        $(".controls").toggle();
+        $(".add").toggle();
+    });
+    $(".qx").click(function(){
+        $(".addtk").toggle();
+        $(".controls").toggle();
+        $(".add").toggle();
+    });
+    $(".fc-button-prev").click(function(){
+        alert("aaa");
+    });
+    </script>
+    <script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="./js/fullcalendar.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/publish_class.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
+        <div class="title">课程发布</div>
+    </header>
+    <div class="category">
+        <div class="item kcpq">课程排期</div>
+        <div class="item kczl">课程种类</div>
+        <div class="layer">
+            <div class="on"></div>
+        </div>
+    </div>
+    <div class="pq">
+        <div class="time">
+            <div class="cila-prev"><div class="prev"></div></div>
+            <span class="timestr"></span>
+            <div class="cila-next"><div class="next"></div></div>
+        </div>
+        <ul class="timelist">
+            <li>
+                <div class="main">时间</div>
+                <div class="select">课程</div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+            <li>
+                <div class="main">8:00</div>
+                <div class="select"></div>
+            </li>
+        </ul>
+        <div class="save">保存</div>
+    </div>
+    <div class="zl">
+        <div class="titlewrap f-cf">
+            <div class="title">课程种类：
+                <span>4</span>
+            </div>
+            <div class="add">添加种类</div>
+        </div>
+        <ul class="header">
+            <li class="col">团课名称</li>
+            <li class="col">最多/少人数</li>
+            <li class="col">时长</li>
+            <li class="col">操作</li>
+        </ul>
+        <ul class="row f-cf">
+            <li class="col">
+                <span>21天马甲线</span>
+            </li>
+            <li class="col">
+                <span>20/5</span>
+            </li>
+            <li class="col">
+                <span>60分钟</span>
+            </li>
+            <li class="col">
+                <a href="javascript:void(0)" class="item xg">修改</a>
+                <span>|</span>
+                <a href="javascript:void(0)" class="item sc">删除</a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(".save").click(function(){
+            window.location.href="../php/navigation.php";
+        });
+        $(".kcpq").click(function(){
+            $(".pq").show();
+            $(".zl").hide();
+            if($(".on").css("left")!="0px"){
+                $(".on").css("-webkit-animation","pq 0.5s");
+                $(".on").css("-moz-animation","pq 0.5s");
+                $(".on").css("animation","pq 0.5s");
+                setTimeout($(".on").css("left","0"),500);
+            }
+        });
+        $(".kczl").click(function(){
+            $(".pq").hide();
+            $(".zl").show();
+            if($(".on").css("left")=="0px"){
+                $(".on").css("-webkit-animation","zl 0.5s");
+                $(".on").css("-moz-animation","zl 0.5s");
+                $(".on").css("animation","zl 0.5s");
+                setTimeout($(".on").css("left","50%"),500);
+            }
+        });
+    </script>
+    <script type="text/javascript" src="../js/time.js"></script>
+</body>
+</html>
