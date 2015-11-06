@@ -268,3 +268,8 @@ li.z-selected{
 	text-align: center;
 	font-size: 15px;
 }
+
+.footer li .item img{
+    height: 41px;
+    width: 37.5px;
+}
