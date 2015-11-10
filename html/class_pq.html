@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/class_pq.css" rel="stylesheet" type="text/css" />
+    <link href="../css/hDate.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
+    <div class="title">课程排期</div>
+</header>
+<ul>
+    <li>
+        <label>门店:</label>
+        <select class="select">
+            <option selected="selected">形健身工作室1</option>
+            <option>形健身工作室2</option>
+            <option>形健身工作室2</option>
+        </select>
+    </li>
+    <li>
+        <label>课程:</label>
+        <select class="select">
+            <option selected="selected">21天马甲线</option>
+            <option>上肌锻炼</option>
+            <option>腹肌锻炼</option>
+        </select>
+    </li>
+    <li>
+        <label>场地:</label>
+        <select class="select">
+            <option selected="selected">场地1</option>
+            <option>场地2</option>
+            <option>场地3</option>
+        </select>
+    </li>
+    <li>
+        <label>教练:</label>
+        <select class="select">
+            <option selected="selected">教练1</option>
+            <option>教练2</option>
+            <option>教练3</option>
+        </select>
+    </li>
+    <li>
+        <label>开始日期:</label>
+        <input type="text" onClick="calshow(this)" readonly="readonly" class="inputtext" placeholder="开始日期">
+    </li>
+    <li>
+        <label>结束日期:</label>
+        <input type="text" onClick="calshow(this)" readonly="readonly" class="inputtext" placeholder="结束日期">
+    </li>
+    <li>
+        <label>开始时间:</label>
+        <div class="u-select">
+            <select class="timeSelect hourSelect"></select>
+            <span>时</span>
+        </div>
+        <div class="u-select">
+            <select class="timeSelect minSelect"></select>
+            <span>分</span>
+        </div>
+    </li>
+    <li>
+        <label>结束时间:</label>
+        <div class="u-select">
+            <select class="timeSelect hourSelect"></select>
+            <span>时</span>
+        </div>
+        <div class="u-select">
+            <select class="timeSelect minSelect"></select>
+            <span>分</span>
+        </div>
+    </li>
+    <li>
+        <label>每逢:</label>
+        <div class="u-week">
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期一
+            </div>
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期二
+            </div>
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期三
+            </div>
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期四
+            </div>
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期五
+            </div>
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期六
+            </div>
+            <div class="item">
+                <input type="checkbox" class="u_checkBox">星期日
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="layer"></div>
+<div class="save" onclick="window.location.href='navigation.html'">保存</div>
+<script type="text/javascript">
+    var jinzhi;
+    document.addEventListener("touchmove",function(e){
+        if(jinzhi==0){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    },false);
+    document.addEventListener("mousewheel",function(e){
+        if(jinzhi==0){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    },false);
+    for(i=0;i<=23;i++) {
+        if(i<10){
+            if(i==0){
+                $(".hourSelect").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+            }else{
+                $(".hourSelect").append("<option value='0"+i+"'>0"+i+"</option>");
+            }
+        }else{
+            $(".hourSelect").append("<option value='0"+i+"'>"+i+"</option>");
+        }
+    }
+    for(i=0;i<=59;i++) {
+        if(i<10){
+            if(i==0){
+                $(".minSelect").append("<option selected='selected' value='0"+i+"'>0"+i+"</option>");
+            }else{
+                $(".minSelect").append("<option value='0"+i+"'>0"+i+"</option>");
+            }
+        }else{
+            $(".minSelect").append("<option value='0"+i+"'>"+i+"</option>");
+        }
+    }
+    var mth = new Date().getMonth()+1;
+    var year = new Date().getFullYear();
+    var day = new Date().getDate();
+    var time = year+"-"+mth+"-"+day;
+    function calshow (i){
+        $(".layer").show();
+        $(".layer").css("z-index","250");
+        calendar.show({ id: i ,minDay:time});
+        window.scrollTo(0,0);
+        jinzhi=0;
+    }
+</script>
+<script type="text/javascript" src="../js/hDate.js"></script>
+</body>
+</html>

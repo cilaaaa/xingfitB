@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-family: Hiragino Sans GB,Arial,Helvetica,"宋体",sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #eeeff0;
+    overflow-x:hidden;
+}
+
+header{
+    height: 45px;
+    background-color: #22272a;
+    width: 100%;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+header .back:before {
+    border: #fff solid 3px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    left: 50%;
+    top: 0px;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+ul,li{
+    list-style: none;
+}
+
+ul{
+    background-color: #fff;
+    margin-bottom: 45px;
+}
+
+li{
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    color: #666;
+}
+
+li:last-child{
+    height: 130px;
+}
+
+li label{
+    width: 30%;
+    float: left;
+    height: 40px;
+    text-indent: 10px;
+}
+
+li .select{
+    width: 60%;
+    height: 30px;
+}
+
+.u-select{
+    width: 100px;
+    display: inline-block;
+    background-color: #f8f8f8;
+    border: 1px solid #ced4ca;
+    border-radius: 5px;
+    line-height: 28px;
+}
+
+.timeSelect{
+    height: 28px;
+    width: 70px;
+    line-height: 28px;
+}
+
+.u-select span{
+    vertical-align: middle;
+}
+
+.u-week{
+    width: 60%;
+    display: inline-block;
+    background-color: #f8f8f8;
+    border: 1px solid #ced4ca;
+    border-radius: 5px;
+}
+
+.u-week .item{
+    display: inline-block;
+    padding-left: 5px;
+}
+
+.layer{
+    display: none;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.save{
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}

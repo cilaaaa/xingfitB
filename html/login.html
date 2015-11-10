@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport"/>
+    <title>登陆</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="bg">
+    <img src="../image/login/background.png">
+</div>
+<div class="xing"></div>
+<form method="post" action="../php/navigation.php" name="form1">
+    <div class="acdiv">
+        <span class="label">账号</span>
+        <input class="text account" type="tel" name="account" maxlength="11"/>
+    </div>
+    <div class="pwdiv">
+        <span class="label">密码</span>
+        <input class="text password" type="password" name="password" maxlength="16"/>
+    </div>
+    <div class="link">
+        <a class="forget" href="forgetpwd.html">忘记密码?</a>
+        <span>记住密码<input class="check" type="checkbox"/></span>
+    </div>
+</form>
+<div onclick="window.location.href='index.html'" class="login" >登陆</div>
+<div onclick="window.location.href='register.html'" class="regist">注册</div>
+
+<script type="text/javascript">
+    function check() {
+        if ($(".account").val().length == 0) {
+            alert("请输入手机号");
+            return false;
+        }
+        else {
+            var mobile = $(".account").val();
+            var myreg = /^(((13[0-9]{1})|(15[012356789]{1})|18[089]{1})+\d{8})$/;
+            if (!myreg.test(mobile)) {
+                alert("请输入有效的手机号");
+                return false;
+            }
+        }
+        if ($(".password").val().length == 0) {
+            alert("请输入密码");
+            return false;
+        } else if ($(".password").val().length < 6 || $(".password").val().length > 16) {
+            alert("请输入6~16位数字或字母的密码");
+            return false;
+        }
+        window.location.href='navigation.html';
+    }
+</script>
+</body>
+</html>

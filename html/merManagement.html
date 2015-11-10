@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>门店管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/appointment.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="index.html" class="back">首页</a>
+    <div class="title">门店管理</div>
+</header>
+
+<div class="add_edit">
+    <a class="btn" onclick="window.location.href='../old/addStore.html'">添加门店</a>
+</div>
+<ul class="header">
+    <li class="col">名称</li>
+    <li class="col">电话</li>
+    <li class="col">地址</li>
+    <li class="col">操作</li>
+</ul>
+<ul class="row">
+    <li class="col">
+        <span>xxxxxx</span>
+        <span>13112345678</span>
+        <span>xxx路xxx号</span>
+        <span onclick="window.location.href='mer_infor.html'">详情</span>
+    </li>
+    <li class="col">
+        <span>xxxxxx</span>
+        <span>13112345678</span>
+        <span>xxx路xxx号</span>
+        <span onclick="window.location.href='mer_infor.html'">详情</span>
+    </li>
+</ul>
+<script>
+    //设定高度一致
+    var $columns = $('.row .col');
+    var height = 0;
+    $columns.each(function () {
+        if ($(this).height() > height) {
+            height = $(this).height();
+        }
+    });
+    $columns.height(height);
+</script>
+</body>
+</html>

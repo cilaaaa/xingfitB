@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>健身记录</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../../../css/fitRecord.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <div class="layout_header">
+        <a href="#" class="back">返回</a>
+    </div>
+    <div class="title">我的会员卡</div>
+</header>
+
+<div id="menu">
+    <!--tag标题-->
+    <ul id="nav">
+        <li><a href="#1" class="selected">商户</a></li>
+        <li><a href="#2" class="">私教</a></li>
+    </ul>
+    <!--二级菜单-->
+    <div id="menu_con">
+        <div class="tag" style="display:block">
+            <span class="records">
+                <span class="record1">
+                    <span class="datetime">2015-10-18 19:00~20:00</span>
+                    <span class="merchant">
+                        <img style="background-color: red"/>
+                        <span class="mer_name">xxx 健身会所</span>
+                    </span>
+                    <span class="pt ptname">教练: 李四</span>
+                    <span class="pt classname">21天马甲线</span>
+
+                </span>
+            </span>
+        </div>
+        <div class="tag" style="display:none">
+            <span class="records">
+                <span class="norecord">对不起，您还没有任何记录！</span>
+            </span>
+        </div>
+    </div>
+</div>
+<script>
+    var tabs=function(){
+        function tag(name,elem){
+            return (elem||document).getElementsByTagName(name);
+        }
+        //获得相应ID的元素
+        function id(name){
+            return document.getElementById(name);
+        }
+        function first(elem){
+            elem=elem.firstChild;
+            return elem&&elem.nodeType==1? elem:next(elem);
+        }
+        function next(elem){
+            do{
+                elem=elem.nextSibling;
+            }while(
+            elem&&elem.nodeType!=1
+                    )
+            return elem;
+        }
+        return {
+            set:function(elemId,tabId){
+                var elem=tag("li",id(elemId));
+                var tabs=tag("div",id(tabId));
+                var listNum=elem.length;
+                var tabNum=tabs.length;
+                for(var i=0;i<listNum;i++){
+                    elem[i].onclick=(function(i){
+                        return function(){
+                            for(var j=0;j<tabNum;j++){
+                                if(i==j){
+                                    tabs[j].style.display="block";
+                                    elem[j].firstChild.className="selected";
+                                }
+                                else{
+                                    tabs[j].style.display="none";
+                                    elem[j].firstChild.className="";
+                                }
+                            }
+                        }
+                    })(i)
+                }
+            }
+        }
+    }();
+    tabs.set("nav","menu_con");
+    $(".records").show();
+</script>
+</body>
+</html>

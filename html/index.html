@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport"/>
+    <title>首页</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/index.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="imgwrap">
+        <img class="logo" src="../image/login/logo.png">
+        <div class="name">XXX健身会所</div>
+        <div class="address">上海市浦东新区祖冲之路1559号XXXX</div>
+    </div>
+    <div class="main">
+        <div class="item" onclick="window.location.href='navigation.html'">课程管理</div>
+        <div class="item" onclick="window.location.href='staff.html'">私教管理</div>
+        <div class="item" onclick="window.location.href='system.html'">系统管理</div>
+        <div class="item">财务管理</div>
+        <div class="item" onclick="window.location.href='custom.html'">客户管理</div>
+        <div class="item" onclick="window.location.href='notice.html'">通知管理</div>
+        <div class="item">
+            <div class="itemsub">
+                <div class="add">+</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".item").css("height",$(".item").css("width"));
+        $(".item").css("line-height",$(".item").css("width"));
+        for (var i=0;i<6;i++){
+            $(".item").eq(i).css("background-color","#"+randomColor());
+        }
+        $(".add").css("background-color","#"+randomColor());
+        function randomColor( ) {
+            var rand = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+            if (rand.length == 6) {
+                return rand;
+            } else {
+                return randomColor();
+            }
+        }
+    </script>
+</body>
+</html>

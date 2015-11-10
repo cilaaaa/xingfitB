@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/notice.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="index.html" class="back">首页</a>
+    <div class="title">通知管理</div>
+</header>
+<div class="section-focus-pic" id="section-focus-pic">
+    <div class="pages" data-scro="list">
+        <ul>
+            <li class="item" style="left:0px;">
+                <a href="{php echo $this->createMobileUrl('foodDetail', array('foodId' => 1 ));}"><img src="../image/activity/detail-0.jpeg" ></a>
+            </li>
+            <li class="item">
+                <a href="{php echo $this->createMobileUrl('foodDetail', array('foodId' => 2 ));}"><img src="../image/activity/detail-1.jpeg"></a>
+            </li>
+            <li class="item">
+                <a href="{php echo $this->createMobileUrl('foodDetail', array('foodId' => 3));}"><img src="../image/activity/detail-2.jpeg"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="controler" data-scro="controler">
+        <b class="down">1</b>
+        <b>2</b>
+        <b>3</b>
+    </div>
+    <div class="controler2" data-scro="controler2">
+        <a href="javascript:;" class="prev"><i></i></a>
+        <a href="javascript:;" class="next"><i></i></a>
+    </div>
+</div>
+<footer>
+    <div class="item">通知一</div>
+    <div class="item">通知二</div>
+    <div class="item">课程审核</div>
+</footer>
+<script type="text/javascript" src="../js/lunbo.js"></script>
+</body>
+</html>

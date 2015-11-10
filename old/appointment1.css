@@ -1,0 +1,522 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0
+}
+
+a {
+	text-decoration: none
+}
+
+body {
+	font-family: Hiragino Sans GB,Arial,Helvetica,"宋体",sans-serif;
+	font-size: 14px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	background-color: #f0f0f0;
+	overflow-x:hidden;
+}
+
+header{
+	height: 45px;
+	background-color: #22272a;
+	width: 100%;
+}
+
+header .back{
+	position: absolute;
+	left: 10px;
+	width: 40px;
+	height: 40px;
+	top: 2.5px;
+	border: none;
+	border-radius: 50%;
+}
+
+header .back img{
+	width: 40px;
+	height: 40px;
+}
+
+header .category{
+	width: 60%;
+	float: right;
+	height: 45px;
+}
+
+header .category .item{
+	width: 33%;
+	float: left;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: #fff;
+    font-family: "SimHei";
+    font-weight: bold;
+}
+
+.titlewrap{
+	position: relative;
+	padding-top: 20px;
+}
+
+.title{
+	position: relative;
+	float: left;
+	color: #282d30;
+	height: 28px;
+	width: 40%;
+	left: 5%;
+	line-height: 28px;
+}
+
+.title .input{
+	font-size: 16px;
+	text-indent: 1px;
+	position: absolute;
+	height: 28px;
+	line-height: 28px;
+	background-color: #f8f8f8;
+	border: none;
+	z-index: 1;
+	box-shadow: 0 4px 4px rgba(0,0,0,0.35);
+	border-radius: 4px;
+	width: 100%;
+	color: #333;
+	outline: 0;
+	text-align: center;
+}
+
+.layer{
+	display: none;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.Fix:after {
+	display: block;
+	content: '';
+	height: 0;
+	clear: both
+}
+
+.list-nav {
+	position: relative;
+	z-index: 100;
+	width: 100%;
+	float: left;
+	margin-top: 10px;
+	background: #fff;
+}
+
+.list-nav .cat,.item{
+	background-image: url(../image/appointment/fengexian.png);
+	background-repeat: repeat-x;
+	background-position: 0 bottom;
+	background-size: auto 1px
+}
+
+.list-nav .cat .item {
+	display: block;
+	width: 50%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: url(../image/appointment/shuxian.png) right center no-repeat;background-size: 1px auto;
+	float: left;
+	text-align: center;
+	color: #646464;
+	font-size: 13px;
+	height: 39px;
+	line-height: 39px;
+	position: relative
+}
+
+.list-nav .cat .item:last-child {
+	background: 0 0
+}
+
+.list-nav .cat .item.on:after {
+	display: block;
+	content: '';
+	width: 17px;
+	height: 7px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -8px;
+	background: url(../image/appointment/nav-select.png) no-repeat 0 0;
+	background-size: 17px auto
+}
+
+.list-nav .cat .item .drop {
+	display: inline-block;
+	width: 13px;
+	height: 7px;
+	background: url(../image/appointment/drop.png)no-repeat 0 0;background-size: 13px auto;
+	margin-left: 5px;
+	-webkit-transition: -webkit-transform .3s
+}
+
+.list-nav .cat .item.on .drop {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg)
+}
+
+.list-nav .selector {
+	position: absolute;
+	left: 0;
+	display: none;
+	top: 39px;
+	color: #323232;
+	width: 50%;
+	height: 200px;
+	font-size: 15px;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.list-nav .selector .menu {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	float: left;
+	overflow-y: auto
+}
+
+.list-nav .selector .menu .item {
+	padding-left: 15px
+}
+
+.selector .menu .item.on{
+	border-bottom: solid 1px #4BBF69;
+	color: #4BBF69;
+}
+
+#selector2{
+	left: 50%;
+}
+
+.list-nav .selector .item {
+	display: block;
+	height: 45px;
+	line-height: 45px;
+	color: #323232
+}
+
+.col{
+	position: relative;
+	float: left;
+	background-color: #3d3d45;
+	width: 16.6%;
+	text-align: center;
+	padding: 14px 0 13px 0;
+	line-height: 24px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.title2{
+	position: relative;
+	color: #282d30;
+	z-index: 1;
+	height: 42px;
+	width: 100%;
+	line-height: 42px;
+	box-shadow: 0 4px 4px rgba(0,0,0,0.35);
+	border-radius: 4px;
+}
+
+.title2 .input{
+	font-size: 16px;
+	text-indent: 1px;
+	position: absolute;
+	height: 42px;
+	line-height: 42px;
+	background-color: #f8f8f8;
+	border: none;
+	width: 100%;
+	color: #333;
+	outline: 0;
+	text-align: center;
+}
+
+.merchant-list{
+	margin-top: 5px;
+	position: relative;
+	width: 100%;
+	border-radius: 5px;
+	height: 42px;
+	z-index: 100;
+	line-height: 42px;
+	background-color: #f8f8f8;
+	color: #666;
+}
+
+.merchant-list .list{
+	box-shadow: 0 4px 4px rgba(0,0,0,0.35);
+	position: absolute;
+	height: 42px;
+	width: 100%;
+	border-radius: 5px;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+.merchant-list .list li{
+	position: relative;
+	box-sizing:border-box;
+	padding: 0 36px 0 46px;
+	line-height: 42px;
+	border-bottom: 1px solid #e8e8e8;
+	background-color: #f8f8f8;
+}
+
+.list.down{
+	height: auto;
+}
+
+.location{
+	background: url(../image/appointment/location.png) center no-repeat;
+	background-size: 22px 22px;
+	width: 22px;
+	height: 22px;
+	left: 18px;
+	top: 50%;
+	margin-top: -11px;
+	position: absolute;
+}
+
+.ic-arrow{
+	background: url(../image/appointment/ic-down.png) center no-repeat;
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+	right: 14px;
+	top: 50%;
+	margin-top: -8px;
+	position: absolute;
+}
+
+.ic-tick{
+	display: none;
+	background: url(../image/appointment/ic-tick.png) center no-repeat;
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+	right: 14px;
+	top: 50%;
+	margin-top: -8px;
+	position: absolute;
+}
+
+li.z-selected{
+	color:#00bfbf;
+}
+
+.sijiao-list{
+	background-color: #fff;
+	position: relative;
+	width: 100%;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.sijiao-list .sjlist{
+	padding-bottom: 12px;
+}
+
+.sijiao-list .sjlist li{
+	padding-top: 8px;
+	margin-left: 10px;
+	width: 86px;
+	display: inline-block;
+}
+
+.sijiao-list .sjlist li .imgwrap{
+	border : 4px solid #e8e8e8;
+	position: relative;
+	margin: 0 auto;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.sijiao-list .sjlist li .imgwrap img{
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.u-tick{
+	display: none;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background: url(../image/appointment/u-tick.png);
+	width: 18px;
+	height: 18px;
+	background-size: 18px 18px;
+}
+
+.sijiao-list .sjlist li .sjname{
+	color: #666;
+	text-align: center;
+	font-size: 14px;
+	padding-top: 10px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.class-list{
+	position: relative;
+	width: 100%;
+	background-color:#fff;
+	margin-top: 10px;
+	margin-bottom: 45px;
+}
+
+.class-title{
+	color: #999;
+	border-bottom: 1px solid #ebebeb;
+	padding: 10px 18px;
+}
+
+.class-title h3{
+	border-left: 4px solid #999;
+	font-size: 14px;
+	text-indent: 8px;
+	font-weight: bold;
+}
+
+.lessonInfo{
+	position: relative;
+	padding-bottom: 10px;
+	margin: 12px 15px 0 19px;
+	border:0;
+	border-bottom: 1px solid #ebebeb;
+}
+
+.lessonInfo .lessonImg{
+	float: left;
+	position: relative;
+}
+
+.lessonInfo .lessonImg img{
+	width: 55px;
+	height: 55px;
+	border-radius: 4px;
+}
+
+.lessonInfo .infowrap{
+	float: left;
+	position: relative;
+	width: 140px;
+	padding: 10px 0 12px 12px;
+	line-height: 17px;
+	font-size: 14px;
+}
+
+.lessonName{
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap; 
+}
+
+.lessonTime{
+	color: #999;
+	padding-top: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap; 
+}
+
+.u-btn{
+	position: absolute;
+	height: 25px;
+	line-height: 25px;
+	top: 12px;
+	right: 15px;
+	border-radius: 3px;
+	background-color: #00bfbf;
+	color: #fff;
+	padding: 0 12px;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.f-cf::after{
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.btns{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	color: #fff;
+	background-color: #e80000;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.tklist-li{
+	border-bottom: 1px solid #cecece;
+	height: 113px;
+	box-sizing:border-box;
+	padding-top: 14px;
+}
+
+.tklist-li .timewrap{
+	color: #00bfbf;
+	width: 20%;
+	text-align: center;
+	font-size: 18px;
+	float: left;
+}
+
+.tklist-li .tkinfo{
+	width: 60%;
+	text-align: center;
+	float: left;
+}
+
+.tklist-li .tkinfo h4{
+	color: #00bfbf;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-bottom: 10px;
+	font-weight: normal;
+	font-size: 18px
+}
+
+.tklist-li .tkinfo .item{
+	color: #666;
+	background-image: none;
+	line-height: 30px;
+	text-indent: 5px;
+}
+
+.tklist-li .tkimg{
+	width: 15%;
+	float: left;
+}
+
+.tklist-li .tkimg img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}

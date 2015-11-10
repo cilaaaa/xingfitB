@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>员工添加</title>
+    <meta name="format-detection" content="telephone=no" />
+    <link href="increaseEmployee.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="add">
+        <div class="red"></div>
+        <form method="post" enctype ="multipart/form-data" action="" name="form1">
+            <ul>
+                <li>
+                    <label class="label1">姓名</label>
+                    <input type="text" name="staff_name" id="name">
+                    <!--<div class="hit">必填<span>*</span></div>-->
+                </li>
+                <li>
+                    <label class="label1">性别</label>
+                    <input class="radio" type="radio" name="sex" value="male" /><span class="sex">男</span>
+                    <input class="radio" type="radio" name="sex" value="female" /><span class="sex">女</span>
+                </li>
+                <li>
+                    <label class="label1">电话</label>
+                    <input type="text" name="staff_phone" id="phone">
+                    <!--<div class="hit">必填<span>*</span></div>-->
+                </li>
+                <li id="zw">
+                    <label class="label1">职位</label>
+                    <select name="sec_zw">
+                        <option value>请选择员工职位</option>
+                        <option value="1">普通员工</option>
+                        <option value="2">管理人员</option>
+                        <option value="3">门店经理</option>
+                    </select>
+                    <!--<div class="hit">必填<span>*</span></div>-->
+                </li>
+                <li>
+                    <label class="label1">门店</label>
+                    <select name="sec_md">
+                        <option value>请选择所属门店</option>
+                        <option value="1">XXX1号店</option>
+                        <option value="2">XXX2号店</option>
+                        <option value="3">XXX3号店</option>
+                    </select>
+                    <!--<div class="hit">必填<span>*</span></div>-->
+                </li>
+            </ul>
+            <!--<div class="logo">-->
+                <!--&lt;!&ndash;src="<?php echo $_SESSION['logo'];?>"&ndash;&gt;-->
+                <!--<img class="yulan">-->
+                <!--<div class="choose">上传用户头像</div>-->
+                <!--<div class="logo_hit">支持jpg,png格式</br>大小不能超过1M</div>-->
+                <!--<input name="store_logo" type="file" onchange="panduan(this)" class="upload">-->
+            <!--</div>-->
+
+            <div class="controls">
+                <a class="btn qx">取消</a>
+                <a class="btn qr">确认</a>
+            </div
+        </form>
+    </div>
+</body>
+</html>

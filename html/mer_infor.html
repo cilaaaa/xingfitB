@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>门店信息</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/mer_infor.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <header>
+        <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
+        <div class="title">门店信息</div>
+    </header>
+</header>
+<div class="category">
+    <div class="item a">课程排期</div>
+    <div class="item b">私教管理</div>
+    <div class="layer">
+        <div class="on"></div>
+    </div>
+</div>
+<div class="sh">
+    <ul class="header">
+        <li class="col name">场地名称</li>
+        <li class="col date">容纳人数</li>
+        <li class="col class">场地用于</li>
+        <li class="col location">操作</li>
+    </ul>
+</div>
+    <!--二级菜单-->
+    <div id="menu_con">
+        <div class="tag" style="display:block">
+            <ul class="header" style="margin-top: 0">
+                <li class="col name">场地名称</li>
+                <li class="col date">容纳人数</li>
+                <li class="col class">场地用于</li>
+                <li class="col location">操作</li>
+            </ul>
+            <ul class="row f-cf">
+                <li class="col name">
+                    <span>xx场地1号</span>
+                </li>
+                <li class="col date">
+                    <span>20</span>
+                </li>
+                <li class="col class">
+                    <span>团课</span>
+                </li>
+                <li class="col location">
+                    <span>修改</span>
+                </li>
+            </ul>
+            <ul class="row f-cf">
+                <li class="col name">
+                    <span>xx场地1号</span>
+                </li>
+                <li class="col date">
+                    <span>20</span>
+                </li>
+                <li class="col class">
+                    <span>团课</span>
+                </li>
+                <li class="col location">
+                    <span>修改</span>
+                </li>
+            </ul>
+            <span class="addField" onclick="window.location.href='../old/addField.html'">添加场地</span>
+        </div>
+
+        <div class="tag" style="display:none">
+            <ul class="merchant">
+                <li>
+                    <span class="logo">
+                        <img class="yulan" src="../image/login/background.png">
+                    </span>
+                </li>
+                <li>
+                    <input name="store_logo" type="file" onchange=""  class="upload">
+                </li>
+                <form>
+                    <li class="infor1">
+                        <span>名称</span>
+                        <input type="text" name="name" class="textin" placeholder="xxx健身会所">
+                    </li>
+                    <li class="infor1">
+                        <span>地址</span>
+                        <input type="text" name="address" class="textin" placeholder="xx区xx路xx号">
+                    </li>
+                    <li class="infor1">
+                        <span>电话</span>
+                        <input type="text" name="tel" class="textin" placeholder="021-53453453">
+                    </li>
+                    <li class="infor1">
+                        <span>邮箱</span>
+                        <input type="text" name="Email" class="textin" placeholder="213123@qw.com">
+                    </li>
+                    <li class="infor1">
+                        <span>微信</span>
+                        <input type="text" name="weichat" class="textin" placeholder="123qweq">
+                    </li>
+                </form>
+                <li>
+                    <a type="button" class="btn">修改</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(".a").click(function(){
+        $(".sh").show();
+        $(".sj").hide();
+        if($(".on").css("left")!="0px"){
+            $(".on").css("-webkit-animation","pq 0.5s");
+            $(".on").css("-moz-animation","pq 0.5s");
+            $(".on").css("animation","pq 0.5s");
+            setTimeout($(".on").css("left","0"),500);
+        }
+    });
+    $(".b").click(function(){
+        $(".sh").hide();
+        $(".sj").show();
+        if($(".on").css("left")=="0px"){
+            $(".on").css("-webkit-animation","zl 0.5s");
+            $(".on").css("-moz-animation","zl 0.5s");
+            $(".on").css("animation","zl 0.5s");
+            setTimeout($(".on").css("left","50%"),500);
+        }
+    });
+</script>
+</body>
+</html>

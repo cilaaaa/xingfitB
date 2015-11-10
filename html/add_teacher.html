@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/add_teacher.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
+    <div class="title">添加私教</div>
+</header>
+<div class="add_teacher">
+    <form method="post" enctype ="multipart/form-data" action="" name="form1">
+        <div class="logo">
+            <img class="yulan" src="../image/login/logo.png">
+            <div class="choose">选择头像</div>
+            <div class="logo_hit">支持jpg,png格式</br>大小不能超过1M</div>
+            <input name="store_logo" type="file" onchange="panduan(this)" class="upload">
+        </div>
+        <ul>
+            <li>
+                <label>姓名:</label>
+                <input class="input" type="text" name="store_name" id="name">
+                <div class="hit">必填<span>*</span></div>
+            </li>
+            <li>
+                <label>电话:</label>
+                <input class="input" type="text" name="store_phone" id="phone">
+                <div class="hit">必填<span>*</span></div>
+            </li>
+            <li>
+                <label>性别:</label>
+                <div class="inputradiowrap">
+                    <input type="radio" name="sex" value="0" class="inputradio" /> 女
+                    <input type="radio" name="sex" value="1" class="inputradio" /> 男
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<div class="save" onclick="javascript:history.back(-1)">添加</div>
+</body>
+</html>

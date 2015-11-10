@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-family: Hiragino Sans GB,Arial,Helvetica,"宋体",sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #eeeff0;
+    overflow-x:hidden;
+}
+
+header{
+    height: 45px;
+    background-color: #22272a;
+    width: 100%;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+header .back:before {
+    border: #fff solid 3px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    left: 50%;
+    top: 0px;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+ul,li{
+    list-style: none;
+}
+
+ul{
+    margin: 10px;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.35);
+    background-color: #fff;
+    padding:20px 30px;
+    border-radius: 5px;
+}
+
+ul li{
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    width: 100%;
+}
+
+ul li:last-child{
+    height: 100px;
+}
+
+ul li .lab{
+    float: left;
+    width: 30%;
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+    text-align: center;
+    font-size: 16px;
+}
+
+ul li .inputtxt{
+    margin-top: 4px;
+    float: left;
+    left: 30%;
+    padding: 2px 5px;
+    width: 60%;
+    margin-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #f4d7d8;
+    border-radius: 3px;
+}
+
+ul li .inputarea{
+    float: left;
+    margin-top: 4px;
+    left: 30%;
+    padding: 2px 5px;
+    width: 60%;
+    margin-left: 10px;
+    height: 90px;
+    border: 1px solid #f4d7d8;
+    border-radius: 3px;
+    word-break: break-all;
+}
+
+.save{
+    position: absolute;
+    left: 50%;
+    margin-top: 20px;
+    margin-left: -38px;
+    background-color: #d2372d;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 5px;
+}

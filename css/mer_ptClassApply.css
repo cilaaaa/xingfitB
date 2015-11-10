@@ -1,0 +1,115 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    font-size: 15px;
+}
+
+body{
+    background-color: #efefef;
+}
+
+header{
+    height: 45px;
+    background-color: #22272a;
+    width: 100%;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+header .back:before {
+    border: #fff solid 3px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    left: 50%;
+    top: 0px;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.apply1{
+    width: 90%;
+    margin: 20px 5% 20px 5%;
+    border-radius: 10px;
+    background-color: white;
+
+}
+
+.apply1 li{
+    clear: both;
+    width: 90%;
+    margin-left: 5%;
+    list-style-type: none;
+    line-height: 40px;
+    text-indent: 3%;
+}
+
+.apply1 .mer{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #666666;
+}
+
+.apply1 .mer_name{
+    color: #d2242a;
+    font-size: 1.1rem;
+}
+
+.apply1 .apply_num{
+    display: block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #d2242a;
+    color: white;
+    float: right;
+    text-indent: 0;
+    text-align: center;
+    margin-top: 5px;
+    margin-right: 3%;
+    line-height: 25px;
+}
+
+.apply1 .more{
+    font-size: 0.9rem;
+}
+
+.apply1 .address{
+    color: #666666;
+}
+.apply1 .det{
+    color: #d2242a;
+    display: inline-block;
+    float: right;
+    width: 15%;
+}

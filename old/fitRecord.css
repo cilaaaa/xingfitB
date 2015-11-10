@@ -1,0 +1,168 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style:none;
+}
+
+html{
+    font-size: 15px;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+body{
+    background-color: #efefef;
+}
+
+header {
+    height: 45px;
+    line-height: 45px;
+    background-color: #000000;
+    text-align: center;
+    color: white;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    z-index: 300
+}
+
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 100%;
+    text-align: center;
+    left: 50%;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #DFDFDF;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #DFDFDF;
+    display: block
+}
+
+header .back:before {
+    border: #DFDFDF solid 3px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -5px;
+    display: block;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+
+#menu{width:100%;height: 100%;overflow:hidden;}
+#menu #nav {display:block;width:100%;padding:0;margin:0;list-style:none;}
+#menu #nav li {float:left;width:50%;background-color: #efefef;
+    /*padding: 0 0.5% 0 0.5%;*/
+}
+#menu #nav li a {
+    display:block;line-height:40px;text-decoration:none;text-align:center;
+    color: #d40000;
+    background:#efefef;
+    border-bottom: 2px solid #c6c6c6;
+}
+#menu #nav li .selected{border-bottom: 2px solid #d40000;}
+#menu_con{ width:100%;border-top:none;color: black}
+
+.tag{ width: 90%;margin-left: 5%; overflow:hidden;}
+
+.records{
+    width: 90%;
+    margin-left: 5%;
+    color: #666666;
+}
+
+.records .record1{
+    display: block;
+    width: 100%;
+    text-align: left;
+    text-indent: 5%;
+    line-height: 25px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px #c6c6c6;
+    -webkit-box-shadow: 2px 2px 2px #c6c6c6;
+}
+
+.records .record1 span{
+    display: block;
+}
+
+.merchant{
+    height: 40px;
+    line-height: 40px;
+}
+
+.merchant img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: left;
+    margin-left: 5%;
+}
+
+.merchant .mer_name{
+    width: 70%;
+    font-size: 1.1rem;
+    float: left;
+
+}
+
+.records .record1 .pt{
+    width: 50%;
+    margin-left: 20%;
+}
+
+.records .norecord{
+    display: block;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px #c6c6c6;
+    -webkit-box-shadow: 2px 2px 2px #c6c6c6;
+}
+
+.btn{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+.cancel{
+    width: 20%;
+    margin-left: 70%;
+    margin-bottom: 5px;
+    color: #666666;
+    border: 1px solid #666666;
+}
+
+.appoint{
+    width: 15%;
+    color: #d40000;
+    border: 1px solid #d40000;
+}

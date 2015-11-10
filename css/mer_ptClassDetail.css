@@ -1,0 +1,133 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style:none;
+}
+
+html{
+    font-size: 15px;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+body{
+    background-color: #efefef;
+    padding-bottom: 50px;
+}
+
+header{
+    height: 45px;
+    background-color: #22272a;
+    width: 100%;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+header .back:before {
+    border: #fff solid 3px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    left: 50%;
+    top: 0px;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.class1{
+    width: 90%;
+    margin: 20px 5% 20px 5%;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.class1 li{
+    clear: both;
+    width: 90%;
+    margin-left: 5%;
+    list-style-type: none;
+    line-height: 40px;
+    text-indent: 2%;
+}
+
+.class1 .pt_name{
+    font-size: 1.1rem;
+    height: 30px;
+    line-height: 30px;
+    color: #d2242a;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.class1 .class_detail{
+    text-indent: 0;
+    color: #a1a1a1;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.class_detail .sp{
+    display: inline-block;
+    height: 40px;
+    text-align: center;
+}
+
+.class_detail .date{
+    width: 25%;
+}
+
+.class_detail .time{
+    width: 30%;
+}
+
+.class_detail .class_name{
+    width: 40%;
+}
+
+.class1 .btns{
+    color: #d2242a;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.class1 .btns .btn{
+    text-indent: 0;
+    display: inline-block;
+    border: 2px solid #d2242a;
+    width: 20%;
+    height: 20px;
+    color: #d2372d;
+    line-height: 20px;
+    margin: 8px 5% 8px 5%;
+    border-radius: 5px;
+}
+

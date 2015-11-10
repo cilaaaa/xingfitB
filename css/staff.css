@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-family: Hiragino Sans GB,Arial,Helvetica,"宋体",sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #eeeff0;
+    overflow-x:hidden;
+}
+
+header{
+    height: 45px;
+    background-color: #22272a;
+    width: 100%;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+header .back:before {
+    border: #fff solid 3px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    left: 50%;
+    top: 0px;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.category{
+    position: relative;
+    height: 40px;
+    background-color: #eeeff0;
+}
+
+.category .item{
+    float: left;
+    width: 50%;
+    height: 42px;
+    line-height: 40px;
+    color: #d44449;
+    font-size: 16px;
+    text-align: center;
+}
+
+.layer{
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    background-color: #cdcecf;
+    width: 100%;
+}
+
+.on{
+    position: absolute;
+    width: 50%;
+    background-color: #d1372d;
+    height: 2px;
+    left: 0px;
+}
+
+ul,li{
+    list-style: none;
+}
+
+
+.time{
+    position: relative;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    color: #d2372d;
+}
+
+.prev{
+    border: #d2372d solid 3px;
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+.time .cila-prev{
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    width: 50px;
+    height: 100%;
+}
+
+.time .cila-next{
+    position: absolute;
+    top: 0px;
+    right: 50%;
+    margin-right: -150px;
+    width: 50px;
+    height: 100%;
+}
+
+.next{
+    border: #d2372d solid 3px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg)
+}
+
+.time .timestr{
+    width: 125px;
+    height: 100%;
+}
+
+ul,li{
+    list-style: none;
+}
+
+.timelist{
+    margin-bottom: 45px;
+    background-color: #fdf9f9;
+    border:1px solid #e8e8e8;
+    border-bottom: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+.timelist li{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e8e8e8;
+    width: 100%;
+}
+
+.timelist li .main{
+    width: 30%;
+    border-right: 1px solid #e8e8e8;
+    color: #d2372d;
+    float: left;
+}
+
+.timelist li .select{
+    width: 69%;
+    float: left;
+    color: #d2372d;
+}
+
+.save{
+    background-color: #fff;
+    color: #d2372d;
+    font-size: 18px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+.sj{
+    display: none;
+}
+
+.teacher .row{
+    height: 45px;
+    line-height: 45px;
+    background-color: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 15px;
+    color: #d2372d;
+    display: table;
+    width: 100%;
+}
+
+.teacher .row span{
+    width: 25%;
+    display: table-cell;
+    vertical-align: middle;
+    float: left;
+    text-align: center;
+}
+
+@keyframes pq
+{
+    from {left:50%;}
+    to {left:0;}
+}
+
+@-webkit-keyframes pq /*Safari and Chrome*/
+{
+    from {left:50%;}
+    to {left:0;}
+}
+
+@keyframes zl
+{
+    from {left:0;}
+    to {left:50%;}
+}
+
+@-webkit-keyframes zl /*Safari and Chrome*/
+{
+    from {left:0;}
+    to {left:50%;}
+}

@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0
+}
+
+a {
+    text-decoration: none
+}
+
+body {
+    font-family: Hiragino Sans GB,Arial,Helvetica,"宋体",sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #eeeff0;
+    overflow-x:hidden;
+}
+
+header{
+    height: 45px;
+    background-color: #22272a;
+    width: 100%;
+}
+
+header .back {
+    padding-left: 18px;
+    position: relative;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+}
+
+header .back:before {
+    border: #fff solid 3px;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    margin-top: -8px;
+    display: block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+header .title {
+    font-size: 16px;
+    position: absolute;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    left: 50%;
+    top: 0px;
+    margin-left: -90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+ul,li{
+    list-style: none;
+}
+
+.section-focus-pic {
+    width: 100%;
+    left: 0px;
+    top: 45px;
+    bottom: 45px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.section-focus-pic ul li {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.section-focus-pic ul li h3 {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    line-height: 50px;
+    left: 0;
+    font-weight: normal;
+    color: #FFF;
+    margin-left: 20px;
+    z-index: 111;
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+
+.section-focus-pic  .pages .categorys {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    background-color: #d4d4d4;
+    width: 100%;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.section-focus-pic .pages {
+    width: 100%;
+    height: 100%;
+}
+
+.section-focus-pic .controler {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.section-focus-pic .controler b {
+    display: none;
+}
+
+.section-focus-pic .controler b.down {
+    background-position: -161px 1px;
+}
+
+.section-focus-pic .controler2 a {
+    display: block;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    height: 40px;
+}
+
+.section-focus-pic .controler2 a i {
+    cursor: pointer;
+    display: block;
+    width: 22px;
+    height: 34px;
+    background: url(../image/lunbo/star.png) no-repeat;
+}
+
+.section-focus-pic .controler2 .prev {
+    left: 5px;
+}
+
+.section-focus-pic .controler2 .prev i {
+    background-position: -34px -68px;
+    background:  url(../image/lunbo/star_05.png);
+    margin-left: 5px;
+}
+
+.section-focus-pic .controler2 .prev:hover i {
+    left: 10px;
+    background-position: -34px -24px;
+    background: url(../image/lunbo/star_03.png);
+}
+
+.section-focus-pic .controler2 .next {
+    right: 10px;
+}
+
+.section-focus-pic .controler2 .next i {
+    background-position: -62px -68px;
+    background: url(../image/lunbo/star_06.png);
+    margin-left: 10px;
+}
+
+.section-focus-pic img{
+    width: 100%;
+    height: 100%;
+}
+
+.section-focus-pic .controler2 .next:hover i {
+    right: 10px;
+    background-position: -62px -24px;
+    background: url(../image/lunbo/star_04.png);
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    height: 45px;
+    width: 100%;
+    background-color: #000;
+    text-align: center;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+footer .item{
+    float: left;
+    width: 33.3%;
+    height: 45px;
+    line-height: 45px;
+}

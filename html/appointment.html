@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>预定管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/appointment.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <header>
+        <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
+        <div class="title">预定管理</div>
+    </header>
+</header>
+
+<div id="menu">
+    <!--tag标题-->
+    <ul id="nav">
+        <li><a href="#1" class="selected">团课课程</a></li>
+        <li><a href="#2" class="">私教课程</a></li>
+    </ul>
+    <div class="section">
+        <select name="fenlei">
+            <option value>分类</option>
+            <option value="1">按课程排序</option>
+            <option value="2">按时间排序</option>
+        </select>
+    </div>
+    <!--二级菜单-->
+    <div id="menu_con">
+        <div class="tag" style="display:block">
+            <ul class="header">
+                <li class="col name">顾客姓名</li>
+                <li class="col date">课程时间</li>
+                <li class="col class">预约课程</li>
+                <li class="col location">所在地</li>
+            </ul>
+            <ul class="row f-cf">
+                <li class="col name">
+                    <span>xxx</span>
+                </li>
+                <li class="col date">
+                    <span>2015-10-25 9:00~10:00</span>
+                </li>
+                <li class="col class">
+                    <span>21天马甲线</span>
+                </li>
+                <li class="col location">
+                    <span>祖冲之路1559号7009</span>
+                </li>
+            </ul>
+            <ul class="row f-cf">
+                <li class="col name">
+                    <span>xxx</span>
+                </li>
+                <li class="col date">
+                    <span>2015-10-25 9:00~10:00</span>
+                </li>
+                <li class="col class">
+                    <span>21天马甲线</span>
+                </li>
+                <li class="col location">
+                    <span>祖冲之路1559号7009</span>
+                </li>
+            </ul>
+        </div>
+        <div class="tag" style="display:none">
+            <ul class="header">
+                <li class="col name">顾客姓名</li>
+                <li class="col date">课程时间</li>
+                <li class="col class">教练</li>
+                <li class="col location">所在地</li>
+            </ul>
+            <ul class="row f-cf">
+                <li class="col name">
+                    <span>xxx</span>
+                </li>
+                <li class="col date">
+                    <span>2015-10-25 9:00~10:00</span>
+                </li>
+                <li class="col class">
+                    <span>xxx教练</span>
+                </li>
+                <li class="col location">
+                    <span>祖冲之路1559号7009</span>
+                </li>
+            </ul>
+            <ul class="row f-cf">
+                <li class="col name">
+                    <span>xxx</span>
+                </li>
+                <li class="col date">
+                    <span>2015-10-25 9:00~10:00</span>
+                </li>
+                <li class="col class">
+                    <span>xxx教练</span>
+                </li>
+                <li class="col location">
+                    <span>祖冲之路1559号7009</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ul class="footer">
+    <li>
+        <!--href="../php/class.php"-->
+        <a class="item" onclick="window.location.href='navigation.html'">
+            <img src="../image/footer/class_manage.png">
+        </a>
+    </li>
+    <li>
+        <!--href="../php/appointment.php"-->
+        <a class="item" onclick="window.location.href='staff.html'">
+            <img src="../image/footer/staff_manage.png">
+        </a>
+    </li>
+    <li>
+        <!--href="../php/staff.php"-->
+        <a class="item" onclick="window.location.href='appointment.html'">
+            <img src="../image/footer/book_manage_on.png">
+        </a>
+    </li>
+    <li>
+        <!--href="../php/system.php"-->
+        <a class="item" onclick="window.location.href='merManagement.html'">
+            <img src="../image/footer/system_manage.png">
+        </a>
+    </li>
+</ul>
+
+<script>
+    var tabs=function(){
+        function tag(name,elem){
+            return (elem||document).getElementsByTagName(name);
+        }
+        //获得相应ID的元素
+        function id(name){
+            return document.getElementById(name);
+        }
+        function first(elem){
+            elem=elem.firstChild;
+            return elem&&elem.nodeType==1? elem:next(elem);
+        }
+        function next(elem){
+            do{
+                elem=elem.nextSibling;
+            }while(
+            elem&&elem.nodeType!=1
+                    )
+            return elem;
+        }
+        return {
+            set:function(elemId,tabId){
+                var elem=tag("li",id(elemId));
+                var tabs=tag("div",id(tabId));
+                var listNum=elem.length;
+                var tabNum=tabs.length;
+                for(var i=0;i<listNum;i++){
+                    elem[i].onclick=(function(i){
+                        return function(){
+                            for(var j=0;j<tabNum;j++){
+                                if(i==j){
+                                    tabs[j].style.display="block";
+                                    elem[j].firstChild.className="selected";
+                                }
+                                else{
+                                    tabs[j].style.display="none";
+                                    elem[j].firstChild.className="";
+                                }
+                            }
+                        }
+                    })(i)
+                }
+            }
+        }
+    }();
+    tabs.set("nav","menu_con");
+    $(".records").show();
+
+    //设定高度一致
+    var $columns = $('.row .col');
+    var height = 0;
+    $columns.each(function () {
+        if ($(this).height() > height) {
+            height = $(this).height();
+        }
+    });
+    $columns.height(height);
+</script>
+</body>
+</html>

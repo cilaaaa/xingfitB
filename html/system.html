@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>系统管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/system.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="index.html" class="back">首页</a>
+    <div class="title">系统管理</div>
+</header>
+<div class="category">
+    <div class="item a">门店</div>
+    <div class="item b">权限</div>
+    <div class="layer2">
+        <div class="on"></div>
+    </div>
+</div>
+<div class="sh">
+    <ul>
+        <li class="li_title">
+            <div class="col">门店名称</div>
+            <div class="col">电话</div>
+            <div class="col">地址</div>
+            <div class="col">操作</div>
+        </li>
+        <?php foreach ($stores as $val) {?>
+        <li class="store">
+            <div class="col"><p>asdfasdf</p></div>
+            <div class="col"><p>asdfasdfadfasd</p></div>
+            <div class="col"><p>asdfasdfasdf</p></div>
+            <a href='storeDetail.html' class="col"><p>详情</p></a>
+        </li>
+        <?php } ?>
+        <li class="store">
+            <div class="col"><p>asdfasdf</p></div>
+            <div class="col"><p>asdfasdfadfasd</p></div>
+            <div class="col"><p>asdfasdfasdf</p></div>
+            <a href='storeDetail.html' class="col"><p>详情</p></a>
+        </li>
+    </ul>
+    <button class="add">添加门店</button>
+    <div class="addstore">
+        <form method="post" enctype ="multipart/form-data" action="" name="form1">
+            <div class="logo">
+                <img class="yulan" src="../image/login/logo.png">
+                <div class="choose">选择工作室logo</div>
+                <div class="logo_hit">支持jpg,png格式</br>大小不能超过1M</div>
+                <input name="store_logo" type="file" onchange="panduan(this)" class="upload">
+            </div>
+            <ul>
+                <li>
+                    <label>门店名称:</label>
+                    <input type="text" name="store_name" id="name">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label>电话:</label>
+                    <input type="text" name="store_phone" id="phone">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label>地址:</label>
+                    <input type="text" name="store_location" id="location">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+                <li>
+                    <label>邮箱:</label>
+                    <input type="text" name="store_mail" id="mail">
+                    <div class="hit">必填<span>*</span></div>
+                </li>
+            </ul>
+            <div class="controls">
+                <div id="store_qx" class="qx">取消</div>
+                <div id="store_qr" class="qr">确认</div>
+            </div>
+        </form>
+    </div>
+    <div id="fujian" class="layer">
+        <ul class="messagehit">
+            <li class="content">
+                附件不能大于1M
+            </li>
+            <li class="button">
+                ok
+            </li>
+        </ul>
+    </div>
+    <div id="geshi" class="layer">
+        <ul class="messagehit">
+            <li class="content">
+                请选择jpg或者png格式文件上传！
+            </li>
+            <li class="button">
+                ok
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="sj">
+    <ul>
+        <li class="li_title">
+            <div class="col">账号</div>
+            <div class="col">级别</div>
+            <div class="col">密码</div>
+            <div class="col">操作</div>
+        </li>
+        <li class="store">
+            <div class="nxg">
+                <div class="col"><p>admin</p></div>
+                <div class="col"><p>系统管理员</p></div>
+                <div class="col"><p>admin</p></div>
+                <div class="col edit"><p>编辑</p></div>
+            </div>
+            <div class="xg">
+                <div class="col">
+                    <input type="text" name="username" value="admin">
+                </div>
+                <div class="col">
+                    <ul class="list">
+                        <li class="selected list-li">系统管理员
+                            <i class="ic-arrow"></i>
+                        </li>
+                        <li class="list-li z-selected"><span>系统管理员</span>
+                            <i class="ic-tick"></i>
+                        </li>
+                        <li class="list-li"><span>门店管理员</span>
+                            <i class="ic-tick"></i>
+                        </li>
+                        <li class="list-li"><span>工作人员</span>
+                            <i class="ic-tick"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <input type="tel" name="password" value="admin">
+                </div>
+                <div class="col">
+                    <div class="place_xg_qx">取消</div>
+                    <div class="place_xg_qr" onclick="window.location.reload()">确认</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(".a").click(function(){
+        $(".sh").show();
+        $(".sj").hide();
+        if($(".on").css("left")!="0px"){
+            $(".on").css("-webkit-animation","pq 0.5s");
+            $(".on").css("-moz-animation","pq 0.5s");
+            $(".on").css("animation","pq 0.5s");
+            setTimeout($(".on").css("left","0"),500);
+        }
+    });
+    $(".b").click(function(){
+        $(".sh").hide();
+        $(".sj").show();
+        if($(".on").css("left")=="0px"){
+            $(".on").css("-webkit-animation","zl 0.5s");
+            $(".on").css("-moz-animation","zl 0.5s");
+            $(".on").css("animation","zl 0.5s");
+            setTimeout($(".on").css("left","50%"),500);
+        }
+    });
+    $("#fujian ul li.button").click(function(){
+        $("#fujian").toggle();
+    });
+    $("#geshi ul li.button").click(function(){
+        $("#geshi").toggle();
+    });
+    function panduan (target) {
+        var fileSize = 0;
+        fileSize = target.files[0].size;
+        var size = fileSize / 1024;
+        if(size>1000){
+            $("#fujian").toggle();
+            target.value="";
+            return
+        }
+        var name=target.value;
+        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+        if(fileName !="jpg" && fileName !="png"){
+            $("#geshi").toggle();
+            target.value="";
+            return
+        }
+        $(".yulan").attr('src',window.URL.createObjectURL(target.files[0]));
+    }
+    $(".add").click(function(){
+        $(".add").toggle();
+        $(".addstore").toggle();
+    });
+    var phonereg = /^(1[0-9]{10})$/;
+    var mailreg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    $("#store_qr").click(function(){
+        if ($("#name").val()=="") {
+            alert("门店名称不能为空");
+            return;
+        }else if ($("#phone").val()=="") {
+            alert("门店电话不能为空");
+            return;
+        }else if ($("#location").val()==""){
+            alert("门店地址不能为空");
+            return;
+        }else if ($("#mail").val()==""){
+            alert("门店邮箱不能为空");
+            return;
+        }else if (!phonereg.test($("#phone").val())){
+            alert("请输入有效的手机号");
+            return;
+        }else if (!mailreg.test($("#mail").val())){
+            alert("请输入有效的邮箱地址");
+            return;
+        };
+        form1.submit();
+    });
+
+    $("#store_qx").click(function(){
+        $(".add").toggle();
+        $(".addstore").toggle();
+        $(".img").attr('src',"{$_SESSION['logo'];}");
+    });
+
+    $("#sms").click(function(){
+        $(".nxg").toggle();
+        $(".xg").toggle();
+    });
+    $("#sms_qx").click(function(){
+        $(".nxg").toggle();
+        $(".xg").toggle();
+    });
+    $("#sms_qr").click(function(){
+        duanxin0.submit();
+    });
+    $(".edit").click(function(){
+        $(".xg").toggle();
+        $(".nxg").toggle();
+    });
+    $(".place_xg_qx").click(function(){
+        $(".xg").toggle();
+        $(".nxg").toggle();
+    });
+
+    $(".list").click(function(){
+        if ($(this).hasClass("down")) {
+            $(this).removeClass("down");
+            $(".layer").hide();
+        }else{
+            $(this).addClass("down");
+            $(".layer").show();
+        };
+    });
+    $(".ic-tick").eq(0).show();
+    $(".u-tick").eq(0).show();
+    $("li").click(function(){
+        if ($(".list-li").index(this)>0) {
+            $(".list-li").removeClass("z-selected");
+            $(".list-li").eq(0).html($(".list-li").eq($(".list-li").index(this)).find("span").html()+"<i class='ic-arrow'></i>");
+            $(".ic-tick").hide();
+            $(".ic-tick").eq($(".list-li").index(this)-1).show();
+            $(".list-li").eq($(".list-li").index(this)).addClass("z-selected");
+        };
+    });
+</script>
+</body>
+</html>

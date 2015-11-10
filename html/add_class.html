@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/add_class.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
+        <div class="title">XX课程种类</div>
+    </header>
+    <ul>
+        <li>
+            <div class="lab">课程名称</div>
+            <input type="text" class="inputtxt" name="classname">
+        </li>
+        <li>
+            <div class="lab">课程时长</div>
+            <input type="text" class="inputtxt" name="classtime">
+        </li>
+        <li>
+            <div class="lab">可预约数</div>
+            <input type="text" class="inputtxt" name="book_num">
+        </li>
+        <li>
+            <div class="lab">最少人数</div>
+            <input type="text" class="inputtxt" name="limit_num">
+        </li>
+        <li>
+            <div class="lab">课程详情</div>
+            <textarea name="class_detail" class="inputarea"></textarea>
+        </li>
+    </ul>
+    <div class="save" onclick="window.location.href='publish_class.html'">保存</div>
+</body>
+</html>

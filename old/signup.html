@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link href="signup.css" rel="stylesheet" type="text/css" />
+    <title>注册</title>
+</head>
+<body>
+<div class="bg">
+    <form method="post" action="" name="form1">
+        <div class="pt_phone">
+            <span class="left">手机号</span>
+            <input class="pt_phone" type="text" name="pt_phone"/>
+            <a type="submit" class="getcode">获取验证码</a>
+        </div>
+        <div class="pt_code">
+            <span class="left">验证码</span>
+            <input class="pt_code" type="text" name="pt_code"/>
+        </div>
+        <div class="pt_pwd1">
+            <span class="left">密码</span>
+            <input class="pt_pwd1" type="password" name="pt_pwd1" maxlength="16"/>
+        </div>
+        <div class="pt_pwd2">
+            <span class="left">确认密码</span>
+            <input class="pt_pwd1" type="password" name="pt_pwd1" maxlength="16"/>
+        </div>
+        <div class="pt_name">
+            <span class="left">姓名</span>
+            <input class="pt_name" type="text" name="password"/>
+        </div>
+        <div class="pt_sex">
+            <span class="left">性别</span>
+            <span class="sex"><input class="radio" type="radio" name="sex" value="male" />男</span>
+            <span class="sex"><input class="radio" type="radio" name="sex" value="female" />女</span>
+        </div>
+
+        <div class="pt_city">
+            <span class="left">所在城市</span>
+            <div class="section">
+                <select name="pt_city">
+                    <option value>请选择所在城市</option>
+                    <option value="1">上海</option>
+                    <option value="2">苏州</option>
+                </select>
+            </div>
+        </div>
+
+        <a type="submit" class="signup" onclick="return check()">注册</a>
+    </form>
+</div>
+</body>
+</html>
