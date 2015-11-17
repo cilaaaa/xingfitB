@@ -12,6 +12,12 @@
         <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
         <div class="title">XX课程种类</div>
     </header>
+    <div class="logo">
+        <img class="yulan" src="../image/login/logo.png">
+        <div class="choose">选择课程图片</div>
+        <div class="logo_hit">支持jpg,png格式</br>大小不能超过1M</div>
+        <input name="store_logo" type="file" onchange="panduan(this)" class="upload">
+    </div>
     <ul>
         <li>
             <div class="lab">课程名称</div>
@@ -19,21 +25,21 @@
         </li>
         <li>
             <div class="lab">课程时长</div>
-            <input type="text" class="inputtxt" name="classtime">
+            <input type="tel" class="inputtxt" name="classtime">
         </li>
         <li>
             <div class="lab">可预约数</div>
-            <input type="text" class="inputtxt" name="book_num">
+            <input type="tel" class="inputtxt" name="book_num">
         </li>
         <li>
             <div class="lab">最少人数</div>
-            <input type="text" class="inputtxt" name="limit_num">
+            <input type="tel" class="inputtxt" name="limit_num">
         </li>
         <li>
             <div class="lab">课程详情</div>
             <textarea name="class_detail" class="inputarea"></textarea>
         </li>
     </ul>
-    <div class="save" onclick="window.location.href='publish_class.html'">保存</div>
+    <div class="save" onclick="window.location.href='navigation.html'">保存</div>
 </body>
 </html>

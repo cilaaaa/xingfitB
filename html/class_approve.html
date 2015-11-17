@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/class_approve.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="notice.html"  class="back">返回</a>
+    <div class="title">课程审核</div>
+</header>
+<div class="category">
+    <div class="item a">已审核课程</div>
+    <div class="item b">未审核课程</div>
+    <div class="layer">
+        <div class="on"></div>
+    </div>
+</div>
+<div class="sh">
+    <ul class="apply1">
+        <li class="mer">
+            <span class="mer_name">张教练</span>
+            <div class="apply_num" style="display: none">2</div>
+        </li>
+        <li class="more">
+            <span class="address">形健身工作室1</span>
+            <span class="det" onclick="window.location.href='mer_ptClassDetail.html'">详情</span>
+        </li>
+    </ul>
+</div>
+<div class="sj">
+    <ul class="apply1">
+        <li class="mer">
+            <span class="mer_name">王教练</span>
+            <div class="apply_num" style="display: block">2</div>
+        </li>
+        <li class="more">
+            <span class="address">形健身工作室2</span>
+            <span class="det" onclick="window.location.href='mer_ptClassDetail.html'">详情</span>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(".a").click(function(){
+        $(".sh").show();
+        $(".sj").hide();
+        if($(".on").css("left")!="0px"){
+            $(".on").css("-webkit-animation","pq 0.5s");
+            $(".on").css("-moz-animation","pq 0.5s");
+            $(".on").css("animation","pq 0.5s");
+            setTimeout($(".on").css("left","0"),500);
+        }
+    });
+    $(".b").click(function(){
+        $(".sh").hide();
+        $(".sj").show();
+        if($(".on").css("left")=="0px"){
+            $(".on").css("-webkit-animation","zl 0.5s");
+            $(".on").css("-moz-animation","zl 0.5s");
+            $(".on").css("animation","zl 0.5s");
+            setTimeout($(".on").css("left","50%"),500);
+        }
+    });
+</script>
+</body>
+</html>

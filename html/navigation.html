@@ -13,72 +13,40 @@
         <a href="index.html" class="back">首页</a>
         <div class="title">课程管理</div>
     </header>
-	<div class="userinfo">
-		<div class="head">
-			<img class="headimg" src="../image/login/logo.png">
-		</div>
-		<div class="username">xxx健身会所</div>
+    <div class="btns">
         <div class="btnwrap">
-            <div class="open_class" onclick="window.location.href='publish_class.html'">发布课程</div>
+            <div class="btn" onclick="window.location.href='add_class_type.html'">课程发布</div>
         </div>
-
-	</div>
-	<div class="time">
-		<div class="cila-prev"><div class="prev"></div></div>
-		<span class="timestr"></span>
-		<div class="cila-next"><div class="next"></div></div>
-	</div>
-	<div class="merchant-list">
-		<ul class="list">
-			<li class="selected list-li">形健身工作室
-				<i class="location"></i>
-				<i class="ic-arrow"></i>
-			</li>
-			<li class="list-li z-selected"><span>形健身工作室</span>
-				<i class="ic-tick"></i>
-			</li>
-			<li class="list-li"><span>形健身工作室2</span>
-				<i class="ic-tick"></i>
-			</li>
-			<li class="list-li"><span>形健身工作室3</span>
-				<i class="ic-tick"></i>
-			</li>
-		</ul>
-	</div>
-	<ul class="header">
-		<li class="col">时间</li>
-		<li class="col">课程</li>
-		<li class="col">人数</li>
-	</ul>
-	<ul class="classinfo">
-		<li class="col classtime">9:00~11:00</li>
-		<li class="col classname">21天马甲线</li>
-		<li class="col people">20</li>
-	</ul>
-    <div class="pq" onclick="window.location.href='class_pq.html'">课程排期</div>
-	<div class="layer"></div>
-	<script type="text/javascript">
-	$(".list").click(function(){
-		if ($(this).hasClass("down")) {
-			$(this).removeClass("down");
-			$(".layer").hide();
-		}else{
-			$(this).addClass("down");
-			$(".layer").show();
-		};
-	});
-	$(".ic-tick").eq(0).show();
-	$(".u-tick").eq(0).show();
-	$("li").click(function(){
-		if ($(".list-li").index(this)>0) {
-			$(".list-li").removeClass("z-selected");
-			$(".list-li").eq(0).html($(".list-li").eq($(".list-li").index(this)).find("span").html()+"<i class='location'></i><i class='ic-arrow'></i>");
-			$(".ic-tick").hide();
-			$(".ic-tick").eq($(".list-li").index(this)-1).show();
-			$(".list-li").eq($(".list-li").index(this)).addClass("z-selected");
-		};
-	});
-	</script>
-	<script type="text/javascript" src="../js/time.js"></script>
+        <div class="btnwrap">
+            <div class="btn" onclick="window.location.href='class_pq_show.html'">课程排期</div>
+        </div>
+    </div>
+    <div class="titlewrap f-cf">
+        <div class="title">课程种类：
+            <span>4</span>
+        </div>
+    </div>
+    <ul class="header">
+        <li class="col">团课名称</li>
+        <li class="col">最多/少人数</li>
+        <li class="col">时长</li>
+        <li class="col">操作</li>
+    </ul>
+    <ul class="row f-cf">
+        <li class="col">
+            <span>21天马甲线</span>
+        </li>
+        <li class="col">
+            <span>20/5</span>
+        </li>
+        <li class="col">
+            <span>60分钟</span>
+        </li>
+        <li class="col">
+            <a href="javascript:void(0)" class="item xg">修改</a>
+            <span>|</span>
+            <a href="javascript:void(0)" class="item sc">删除</a>
+        </li>
+    </ul>
 </body>
 </html>

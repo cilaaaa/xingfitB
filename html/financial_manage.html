@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>财务管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/financial_manage.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="index.html" class="back">首页</a>
+    <div class="title">财务管理</div>
+</header>
+<div class="class-list">
+    <ul class="classlist">
+        <li class="classlist-li">
+            <div class="imgwrap">
+                <img src="../image/login/logo.png">
+                <i class="u-tick"></i>
+            </div>
+            <p class="classname">课程1</p>
+        </li>
+        <li class="classlist-li">
+            <div class="imgwrap">
+                <img src="../image/login/logo.png">
+                <i class="u-tick"></i>
+            </div>
+            <p class="classname">课程2</p>
+        </li>
+        <li class="classlist-li">
+            <div class="imgwrap">
+                <img src="../image/login/logo.png">
+                <i class="u-tick"></i>
+            </div>
+            <p class="classname">课程3</p>
+        </li>
+        <li class="classlist-li">
+            <div class="imgwrap">
+                <img src="../image/login/logo.png">
+                <i class="u-tick"></i>
+            </div>
+            <p class="classname">课程4</p>
+        </li>
+    </ul>
+</div>
+<div class="dingjia">
+    <ul class="dj">
+        <li>
+            <label>课程定价</label>
+            <input type="tel" name="money" class="inputtext">
+        </li>
+        <li>
+            <div class="save">确定</div>
+        </li>
+    </ul>
+</div>
+<div href="" class="purchase">收款</div>
+<script type="text/javascript">
+    $(".classlist").css("width",96*4+"px");
+    $(".a").click(function(){
+        $(".sh").show();
+        $(".sj").hide();
+        if($(".on").css("left")!="0px"){
+            $(".on").css("-webkit-animation","pq 0.5s");
+            $(".on").css("-moz-animation","pq 0.5s");
+            $(".on").css("animation","pq 0.5s");
+            setTimeout($(".on").css("left","0"),500);
+        }
+    });
+    $(".b").click(function(){
+        $(".sh").hide();
+        $(".sj").show();
+        if($(".on").css("left")=="0px"){
+            $(".on").css("-webkit-animation","zl 0.5s");
+            $(".on").css("-moz-animation","zl 0.5s");
+            $(".on").css("animation","zl 0.5s");
+            setTimeout($(".on").css("left","50%"),500);
+        }
+    });
+    $(".ic-tick").eq(0).show();
+    $(".u-tick").eq(0).show();
+    $(".classlist-li").eq(0).find(".imgwrap").css("border-color","#00bfbf");
+    $("li").click(function(){
+        if ($(".classlist-li").index(this)>=0) {
+            $(".u-tick").hide();
+            $(".classlist-li .imgwrap").css("border-color","#e8e8e8")
+            $(".classlist-li").eq($(".classlist-li").index(this)).find(".imgwrap").css("border-color","#00bfbf");
+            $(".u-tick").eq($(".classlist-li").index(this)).show();
+        };
+    });
+</script>
+</body>
+</html>
