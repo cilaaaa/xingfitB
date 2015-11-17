@@ -18,9 +18,10 @@
         <div class="item" onclick="window.location.href='navigation.html'">课程管理</div>
         <div class="item" onclick="window.location.href='staff.html'">私教管理</div>
         <div class="item" onclick="window.location.href='system.html'">系统管理</div>
-        <div class="item">财务管理</div>
+        <div class="item" onclick="window.location.href='financial_manage.html'">财务管理</div>
         <div class="item" onclick="window.location.href='custom.html'">客户管理</div>
         <div class="item" onclick="window.location.href='notice.html'">通知管理</div>
+        <div class="item">营销管理</div>
         <div class="item">
             <div class="itemsub">
                 <div class="add">+</div>
@@ -30,7 +31,7 @@
     <script>
         $(".item").css("height",$(".item").css("width"));
         $(".item").css("line-height",$(".item").css("width"));
-        for (var i=0;i<6;i++){
+        for (var i=0;i<7;i++){
             $(".item").eq(i).css("background-color","#"+randomColor());
         }
         $(".add").css("background-color","#"+randomColor());

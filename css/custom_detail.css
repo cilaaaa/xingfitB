@@ -70,7 +70,7 @@ ul,li{
 
 .userinfo{
     position: relative;
-    height: 100px;
+    height: 130px;
     padding: 20px;
     background-color: #fff;
     padding-bottom:10px;
@@ -171,7 +171,7 @@ ul,li{
     position: relative;
     margin: 0 15px;
     border-bottom: 1px solid #e8e8e8;
-    height: 60px;
+    height: 90px;
 }
 
 .list li .class:last-child{
@@ -187,11 +187,19 @@ ul,li{
     right: 100px;
 }
 
+.list li .class .teacher{
+    position: absolute;
+    top: 30px;
+    height: 30px;
+    line-height: 30px;
+    left: 45px;
+}
+
 .list li .class .money{
     position: absolute;
     top: 0px;
-    height: 30px;
-    line-height: 30px;
+    height: 90px;
+    line-height: 90px;
     right: 10px;
     text-align: center;
     width: 90px;
@@ -199,7 +207,7 @@ ul,li{
 
 .list li .class .classname{
     position: absolute;
-    top: 30px;
+    top: 60px;
     left: 45px;
     height: 30px;
     line-height: 30px;

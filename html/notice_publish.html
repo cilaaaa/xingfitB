@@ -5,23 +5,23 @@
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
     <meta name="format-detection" content="telephone=no" />
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-    <link href="../css/add_class_type.css" rel="stylesheet" type="text/css" />
+    <link href="../css/add_class.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <header>
     <a href="javascript:void(0)" onclick="javascript:history.back(-1)" class="back">返回</a>
-    <div class="title">添加课程种类</div>
+    <div class="title">发布通知</div>
 </header>
-<body>
-    <ul>
-        <li>
-            <div class="item" onclick="window.location.href='add_class.html'">团课课程添加</div>
-            <i></i>
-        </li>
-        <li>
-            <div class="item" onclick="window.location.href='add_class.html'">私教课程添加</div>
-            <i></i>
-        </li>
-    </ul>
+<ul>
+    <li>
+        <div class="lab">通知名称</div>
+        <input type="text" class="inputtxt" name="classname">
+    </li>
+    <li>
+        <div class="lab">通知详情</div>
+        <textarea name="class_detail" class="inputarea"></textarea>
+    </li>
+</ul>
+<div class="save" onclick="window.location.href='notice.html'">保存</div>
 </body>
 </html>

@@ -63,6 +63,38 @@ header .title {
     color: #fff;
 }
 
+.upload{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    opacity: 0;
+}
+
+.logo{
+    text-align: center;
+    position: relative;
+}
+
+.yulan{
+    margin-top: 15px;
+    width: 40%;
+}
+
+.choose{
+    width: 40%;
+    height: 30px;
+    margin: auto;
+    font-size: 12px;
+    line-height: 30px;
+    background-color: #faf100;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 ul,li{
     list-style: none;
 }
@@ -132,4 +164,5 @@ ul li .inputarea{
     color: #fff;
     padding: 5px 20px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }

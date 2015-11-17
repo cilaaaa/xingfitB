@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport" />
+    <title>客户管理</title>
+    <meta name="format-detection" content="telephone=no" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <link href="../css/milestone.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+    <a href="notice.html" class="back">返回</a>
+    <div class="title">重要事件</div>
+</header>
+<ul class="list">
+    <li>
+        <div class="info">张三今天生日</div>
+        <div class="time">11月6日</div>
+    </li>
+    <li>
+        <div class="info">王教练的上肌锻炼申请审批，请去通知管理审批</div>
+        <div class="time">11月6日</div>
+    </li>
+</ul>
+<script type="text/javascript">
+    $("li").click(function(){
+        if($(this).find(".info").css("height")=="40px"){
+            $(this).find(".info").css("height","auto");
+        }else{
+            $(this).find(".info").css("height","40px");
+        }
+    });
+</script>
+</body>
+</html>
